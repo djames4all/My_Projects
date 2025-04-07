@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Lecturer Dashboard";
+    var totalClaims = ViewData["TotalClaims"] ?? 0; // Default to 0 if null
+    var totalHours = ViewData["TotalHours"] ?? 0; // Default to 0 if null
+    var claimsList = ViewData["ClaimsList"] as List<ProgPOE.Models.ClaimModel>; // Assuming the claims are passed as a list
+}
+
+<div class="container mt-5" style="max-width: 1200px; margin: auto;">
+    <h2 class="mb-4 text-center">Lecturer Dashboard</h2>
+    <div class="card shadow-sm mb-4" style="border-radius: 10px;">
+        <div class="card-body" style="display: flex; justify-content: space-between; align-items: center;">
+            <button id="submitClaimBtn" class="btn btn-success mb-3" style="padding: 10px 20px; font-weight: bold;" data-toggle="modal" data-target="#submitClaimModal">
+                <i class="fas fa-plus-circle"></i> Submit New Claim
+            </button>
+            <div style="display: flex; gap: 15px;">
+                <div class="text-center">
+                    <h4 id="totalClaims">@String.Format("R{0:N2}", totalClaims)</h4>
+                    <p>Total Claims</p>
+                </div>
+                <div class="text-center">
+                    <h4 id="totalHours">@totalHours</h4>
+                    <p>Hours Worked</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm" style="border-radius: 10px;">
+        <div class="card-header bg-success text-white" style="border-radius: 10px 10px 0 0;">Claim History</div>
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Date</th>
+                        <th>Claim Amount</th>
+                        <th>Hours Worked</th>
+                        <th>Hourly Rate</th>
+                        <th>Additional Notes</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="claimsTableBody">
+                    @if (claimsList != null && claimsList.Any())
+                    {
+                        foreach (var claim in claimsList)
+                        {
+                            <tr>
+                                <td>@String.Format("R{0:N2}", claim.HourlyRate * claim.HoursWorked)</td>
+                                <td>@claim.HoursWorked</td>
+                                <td>@String.Format("R{0:N2}", claim.HourlyRate)</td>
+                                <td class="@(claim.Status == "Approved" ? "status-approved" : (claim.Status == "Rejected" ? "status-rejected" : "status-pending"))">
+                                    @claim.Status
+                                </td>
+                                <td><button class="btn btn-info btn-sm viewBtn"><i class="fas fa-eye"></i> View</button></td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center">No claims available.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for submitting new claim -->
+<div class="modal fade" id="submitClaimModal" tabindex="-1" role="dialog" aria-labelledby="submitClaimModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form asp-action="SubmitClaim" method="post" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="submitClaimModalLabel">Submit New Claim</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="HoursWorked">Hours Worked</label>
+                        <input type="number" class="form-control" id="HoursWorked" name="HoursWorked" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="HourlyRate">Hourly Rate</label>
+                        <input type="number" class="form-control" id="HourlyRate" name="HourlyRate" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Notes">Additional Notes</label>
+                        <textarea class="form-control" id="Notes" name="Notes" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Upload File</label>
+                        <input type="file" class="form-control" id="file" name="file" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit Claim</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Add necessary JavaScript for modal -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>

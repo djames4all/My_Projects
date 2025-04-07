@@ -1,0 +1,226 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USER\\source\\repos\\ProgPOE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\lecturerdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\lecturerdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\hrdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\hrdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\createnewuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\createnewuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\coordinatordashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\coordinatordashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|c:\\users\\user\\source\\repos\\progpoe\\progpoe\\views\\home\\claims\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FE62874-8D44-4C90-90DB-24778DF99644}|ProgPOE\\ProgPOE.csproj|solutionrelative:progpoe\\views\\home\\claims\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Register.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\Register.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Register.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T20:00:26.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Profile.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Profile.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\Profile.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T19:59:53.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T19:59:51.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\Login.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T19:59:16.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LecturerDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\LecturerDashboard.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\LecturerDashboard.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\LecturerDashboard.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\LecturerDashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T19:58:38.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T19:58:32.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HRDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\HRDashboard.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\HRDashboard.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\HRDashboard.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\HRDashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T19:58:02.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ForgotPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\ForgotPassword.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\ForgotPassword.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\ForgotPassword.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\ForgotPassword.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T19:57:24.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateNewUser.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\CreateNewUser.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\CreateNewUser.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\CreateNewUser.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\CreateNewUser.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T19:56:45.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CoordinatorDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\CoordinatorDashboard.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\CoordinatorDashboard.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\CoordinatorDashboard.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\CoordinatorDashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T19:56:02.431Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AdminDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\AdminDashboard.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\AdminDashboard.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\AdminDashboard.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\AdminDashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T19:54:41.632Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Claims\\Create.cshtml",
+              "RelativeDocumentMoniker": "ProgPOE\\Views\\Home\\Claims\\Create.cshtml",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\ProgPOE\\ProgPOE\\Views\\Home\\Claims\\Create.cshtml",
+              "RelativeToolTip": "ProgPOE\\Views\\Home\\Claims\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T19:54:35.449Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Coordinator Dashboard";
+}
+
+<div class="container mt-5" style="max-width: 1200px; margin: auto;">
+    <h2 class="mb-4 text-center">Coordinator Dashboard</h2>
+    <div class="card shadow-sm" style="border-radius: 10px;">
+        <div class="card-header bg-warning text-white" style="border-radius: 10px 10px 0 0;">Pending Claims</div>
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Date</th>
+                        <th>Claim Amount</th>
+                        <th>Hours Worked</th>
+                        <th>Hourly Rate</th>
+                        <th>Additional Notes</th>
+                        <th>Lecturer</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any()) // Check if Model is not null and has items
+                    {
+                        foreach (var claim in Model)
+                        {
+                            <tr>
+                                <td>@claim.Date.ToString("dd/MM/yyyy")</td>
+                                <td>@String.Format("R{0:N2}", claim.HourlyRate * claim.HoursWorked)</td> <!-- Ensure these properties are not null -->
+                                <td>@claim.HoursWorked</td>
+                                <td>@String.Format("R{0:N2}", claim.HourlyRate)</td>
+                                <td>@claim.Notes</td>
+                                <td>@claim.LecturerName</td>
+                                <td class="@(claim.Status == "Approved" ? "status-approved" : (claim.Status == "Rejected" ? "status-rejected" : "status-pending"))">
+                                    @claim.Status
+                                </td>
+                                <td>
+                                    @if (claim.Status == "Pending")
+                                    {
+                                        <button class="btn btn-success btn-sm approveBtn"><i class="fas fa-check"></i> Approve</button>
+                                        <button class="btn btn-danger btn-sm rejectBtn"><i class="fas fa-times"></i> Reject</button>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="8" class="text-center">No pending claims available.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Logic for Approve/Reject Buttons
+    $(document).on('click', '.approveBtn', function () {
+        const row = $(this).closest('tr');
+        const claimAmount = row.find('td:eq(1)').text();
+
+        // Update the status to "Approved"
+        row.find('td:eq(6)').text('Approved').removeClass('status-pending').addClass('status-approved');
+
+        // Disable the buttons after approval
+        $(this).prop('disabled', true);
+        $(this).siblings('.rejectBtn').prop('disabled', true);
+
+        alert(`Claim for ${claimAmount} has been approved!`);
+    });
+
+    $(document).on('click', '.rejectBtn', function () {
+        const row = $(this).closest('tr');
+        const claimAmount = row.find('td:eq(1)').text();
+
+        // Update the status to "Rejected"
+        row.find('td:eq(6)').text('Rejected').removeClass('status-pending').addClass('status-rejected');
+
+        // Disable the buttons after rejection
+        $(this).prop('disabled', true);
+        $(this).siblings('.approveBtn').prop('disabled', true);
+
+        alert(`Claim for ${claimAmount} has been rejected!`);
+    });
+</script>

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "PnKYH+rZy4I=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Legion\\source\\repos\\PROG_POE_Part1\\PROG_POE_Part1\\PROG_POE_Part1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Legion\\.nuget\\packages\\nunit\\4.1.0\\nunit.4.1.0.nupkg.sha512",
+    "C:\\Users\\Legion\\.nuget\\packages\\nunit3testadapter\\4.5.0\\nunit3testadapter.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,115 @@
+﻿@model IEnumerable<CMCS.Controllers.Claim>
+@{
+    ViewData["Title"] = "HR Dashboard";
+}
+<!-- ST10393280 -->
+<div class="container">
+    <h1 class="mt-4">HR Dashboard</h1>
+
+    <!-- Accepted Claims Summary -->
+    <div class="card mt-4">
+        <div class="card-header">Accepted Claims Summary</div>
+        <div class="card-body">
+            @if (!Model.Any(c => c.Status == "Accepted"))
+            {
+                <p>No accepted claims available.</p>
+            }
+            else
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Submitter</th>
+                            <th>Hours Worked</th>
+                            <th>Payment</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var claim in Model.Where(c => c.Status == "Accepted"))
+                        {
+                            <tr>
+                                <td>@claim.Id</td>
+                                <td>@claim.Submitter</td>
+                                <td>@claim.HoursWorked</td>
+                                <td>
+                                    <form method="post" action="/Home/InvoiceClaim">
+                                        <input type="hidden" name="claimId" value="@claim.Id" />
+                                        <button type="submit" class="btn btn-primary">Invoice</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+
+    <!-- Invoiced Claims List -->
+    <div class="card mt-4">
+        <div class="card-header">Invoiced Claims</div>
+        <div class="card-body">
+            @if (!Model.Any(c => c.Status == "Invoiced"))
+            {
+                <p>No invoiced claims available.</p>
+            }
+            else
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Submitter</th>
+                            <th>Hours Worked</th>
+                            <th>Payment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var claim in Model.Where(c => c.Status == "Invoiced"))
+                        {
+                            <tr>
+                                <td>@claim.Id</td>
+                                <td>@claim.Submitter</td>
+                                <td>@claim.HoursWorked</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+
+    <!-- Generate Reports Section -->
+    <div class="card mt-4">
+        <div class="card-header">Generate Reports</div>
+        <div class="card-body">
+            <form method="post" action="/Home/GenerateReport">
+                <button type="submit" class="btn btn-primary">Generate Invoice Report</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lecturer Management Section -->
+    <div class="card mt-4">
+        <div class="card-header">Manage Lecturer Data</div>
+        <div class="card-body">
+            <form method="post" action="/Home/UpdateLecturerInfo">
+                <div class="form-group">
+                    <label for="lecturerUsername">Lecturer Username</label>
+                    <input type="text" class="form-control" id="lecturerUsername" name="username" required />
+                </div>
+                <div class="form-group">
+                    <label for="lecturerEmail">New Email</label>
+                    <input type="email" class="form-control" id="lecturerEmail" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="lecturerContact">New Contact Number</label>
+                    <input type="tel" class="form-control" id="lecturerContact" name="contact" required />
+                </div>
+                <button type="submit" class="btn btn-success">Update Information</button>
+            </form>
+        </div>
+    </div>
+</div>
