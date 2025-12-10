@@ -1,0 +1,60 @@
+﻿@model MunicipalServicesApp.Models.EventModel
+@{
+    ViewData["Title"] = "Create Event";
+    var categories = ViewBag.Categories as IEnumerable<string> ?? Enumerable.Empty<string>();
+}
+
+<div class="container my-4">
+    <h1>Create Event</h1>
+    <form asp-action="Create" method="post" class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Title</label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Category</label>
+            <input asp-for="Category" class="form-control" list="categoryList" />
+            <datalist id="categoryList">
+                @foreach (var c in categories)
+                {
+                    <option value="@c" />
+                }
+            </datalist>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Start Date</label>
+            <input asp-for="StartDate" type="datetime-local" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">End Date (optional)</label>
+            <input asp-for="EndDate" type="datetime-local" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Location</label>
+            <input asp-for="Location" class="form-control" />
+        </div>
+        <div class="col-12">
+            <label class="form-label">Description</label>
+            <textarea asp-for="Description" rows="4" class="form-control"></textarea>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Image URL (local or external)</label>
+            <input asp-for="ImageUrl" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Priority (1-high..10-low)</label>
+            <input asp-for="Priority" type="number" min="1" max="10" class="form-control" />
+        </div>
+        <div class="col-md-2 d-flex align-items-center">
+            <div class="form-check mt-3">
+                <input asp-for="IsFeatured" class="form-check-input" />
+                <label class="form-check-label">Featured</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Create Event</button>
+            <a class="btn btn-outline-secondary" href="@Url.Action("Index", "Events")">Cancel</a>
+        </div>
+    </form>
+</div>

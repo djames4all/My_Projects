@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Track Service Request";
+}
+
+<h2 class="text-success">Track Service Request</h2>
+
+<div class="card p-3 shadow-sm border-success">
+    <form method="post" asp-action="TrackResult">
+        <div class="mb-3">
+            <label class="form-label fw-semibold text-success">Tracking ID</label>
+            <input name="trackingId" class="form-control" />
+            <small class="form-text text-muted">Enter your Tracking ID (shown after submission).</small>
+        </div>
+        <button class="btn btn-success">Lookup</button>
+        <a asp-action="Index" class="btn btn-outline-success ms-2">Back to List</a>
+    </form>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success mt-3">@ViewBag.Message</div>
+    }
+</div>

@@ -1,0 +1,246 @@
+﻿@model MunicipalServicesApp.Models.SurveyResponse
+@{
+    ViewData["Title"] = "Community Engagement";
+    Layout = "_Layout";
+}
+
+<div class="text-center mb-4">
+    <h2>Community Engagement</h2>
+    <p class="text-muted">Participatory Co-Creation: Help us improve by sharing your voice.</p>
+</div>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success d-flex justify-content-between align-items-center">
+        <div>@TempData["Message"]</div>
+        <div>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-success btn-sm">Back to Main Menu</a>
+        </div>
+    </div>
+}
+
+<!-- Tabs -->
+<ul class="nav nav-tabs nav-justified custom-tabs mb-4" id="engagementTabs" role="tablist">
+    <li class="nav-item">
+        <button class="nav-link active fw-bold" id="survey-tab" data-bs-toggle="tab" data-bs-target="#survey" type="button">Community Survey</button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link fw-bold" id="suggestion-tab" data-bs-toggle="tab" data-bs-target="#suggestion" type="button">Report a Suggestion</button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link fw-bold" id="results-tab" data-bs-toggle="tab" data-bs-target="#results" type="button">Community Feedback</button>
+    </li>
+</ul>
+
+<div class="tab-content">
+
+    <!-- Survey Form -->
+    <div class="tab-pane fade show active" id="survey" role="tabpanel">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h4 class="mb-3">Community Survey</h4>
+                <form asp-action="SubmitSurvey" method="post">
+
+                    <!-- Q1 -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">1. Which issue affects you the most?</label>
+                        <select name="PriorityIssue" class="form-select" required>
+                            <option value="">-- Select one --</option>
+                            <option>Water disruptions</option>
+                            <option>Electricity outages</option>
+                            <option>Sanitation and waste</option>
+                            <option>Road maintenance</option>
+                            <option>Housing</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">2. How satisfied are you with current municipal services?</label>
+                        <select name="SatisfactionLevel" class="form-select" required>
+                            <option value="">-- Select one --</option>
+                            <option>Very Satisfied</option>
+                            <option>Satisfied</option>
+                            <option>Neutral</option>
+                            <option>Dissatisfied</option>
+                            <option>Very Dissatisfied</option>
+                        </select>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">3. How easy is it to access services (e.g., billing, reporting issues)?</label>
+                        <select name="EaseOfAccess" class="form-select" required>
+                            <option value="">-- Select one --</option>
+                            <option>Very Easy</option>
+                            <option>Easy</option>
+                            <option>Neutral</option>
+                            <option>Difficult</option>
+                            <option>Very Difficult</option>
+                        </select>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">4. How much do you trust the municipality to use this app to improve services?</label>
+                        <select name="TrustLevel" class="form-select" required>
+                            <option value="">-- Select one --</option>
+                            <option>Strongly Trust</option>
+                            <option>Somewhat Trust</option>
+                            <option>Neutral</option>
+                            <option>Somewhat Distrust</option>
+                            <option>Strongly Distrust</option>
+                        </select>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">5. Which communication channels do you prefer for service updates?</label>
+                        <select name="PreferredChannel" class="form-select" required>
+                            <option value="">-- Select one --</option>
+                            <option>SMS / WhatsApp</option>
+                            <option>Email</option>
+                            <option>In-app notifications</option>
+                            <option>Community meetings</option>
+                            <option>Radio / Local newspaper</option>
+                        </select>
+                    </div>
+
+                    <!-- Q6 -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">
+                            6. Would you participate in future workshops or testing sessions to co-create new features?
+                        </label>
+                        <select name="ParticipateWorkshops" class="form-select" required>
+                            <option value="">-- Select one --</option>
+                            <option>Yes, definitely</option>
+                            <option>Maybe</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+
+                    <!-- Q7 -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">7. Any suggestions for improvement?</label>
+                        <textarea name="Suggestions" class="form-control" rows="4" placeholder="Your input..." required></textarea>
+                    </div>
+
+                    <div class="mt-4 d-flex justify-content-between">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-lg">Back to Main Menu</a>
+                        <button type="submit" class="btn btn-success btn-lg">Submit Survey</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Suggestion Form -->
+    <div class="tab-pane fade" id="suggestion" role="tabpanel">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h4 class="mb-3">Report a Suggestion</h4>
+                <form asp-action="SubmitSuggestion" method="post">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Your Name (optional)</label>
+                        <input type="text" name="Name" class="form-control" placeholder="Anonymous if left blank">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Your Suggestion</label>
+                        <textarea name="SuggestionText" class="form-control" rows="4" required></textarea>
+                    </div>
+
+                    <div class="mt-4 d-flex justify-content-between">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-lg">Back to Main Menu</a>
+                        <button type="submit" class="btn btn-success btn-lg">Submit Suggestion</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Results -->
+    <div class="tab-pane fade" id="results" role="tabpanel">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h4 class="mb-3">Community Feedback</h4>
+
+                <!-- Survey Responses Table -->
+                <h5>Survey Responses</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Date</th>
+                                <th>Issue</th>
+                                <th>Satisfaction</th>
+                                <th>Ease of Access</th>
+                                <th>Trust Level</th>
+                                <th>Preferred Channel</th>
+                                <th>Workshops</th>
+                                <th>Suggestions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.Surveys != null && ViewBag.Surveys.Count > 0)
+                            {
+                                foreach (var survey in ViewBag.Surveys)
+                                {
+                                    <tr>
+                                        <td>@survey.SubmittedAt.ToString("yyyy-MM-dd")</td>
+                                        <td>@survey.PriorityIssue</td>
+                                        <td>@survey.SatisfactionLevel</td>
+                                        <td>@survey.EaseOfAccess</td>
+                                        <td>@survey.TrustLevel</td>
+                                        <td>@survey.PreferredChannel</td>
+                                        <td>@survey.ParticipateWorkshops</td>
+                                        <td>@survey.Suggestions</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr><td colspan="8" class="text-muted text-center">No surveys submitted yet.</td></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Suggestions Table -->
+                <h5 class="mt-4">Suggestions</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Suggestion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.Suggestions != null && ViewBag.Suggestions.Count > 0)
+                            {
+                                foreach (var sug in ViewBag.Suggestions)
+                                {
+                                    <tr>
+                                        <td>@sug.SubmittedAt.ToString("yyyy-MM-dd")</td>
+                                        <td>@(string.IsNullOrEmpty(sug.Name) ? "Anonymous" : sug.Name)</td>
+                                        <td>@sug.SuggestionText</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr><td colspan="3" class="text-muted text-center">No suggestions submitted yet.</td></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4 d-flex justify-content-center">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-lg">Back to Main Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

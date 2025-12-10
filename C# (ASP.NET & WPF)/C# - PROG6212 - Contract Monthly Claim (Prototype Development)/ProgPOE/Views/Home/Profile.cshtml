@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+}
+
+<!-- ST10393280 -->
+<div class="container mt-5">
+    <h2>My Profile</h2>
+    <form id="profileForm">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" value="Innocent" readonly>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" value="Innocent@cmcs.com">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="••••••">
+        </div>
+        <button type="submit" class="btn btn-info mb-2">Update Profile</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var profileForm = document.getElementById("profileForm");
+
+            if (profileForm) {
+                profileForm.addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    alert("Profile updated successfully!");
+                });
+            }
+        });
+    </script>
+}

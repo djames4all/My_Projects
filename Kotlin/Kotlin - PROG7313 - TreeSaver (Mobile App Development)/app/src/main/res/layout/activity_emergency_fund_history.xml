@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_gradient_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp">
+
+            <TextView
+                android:id="@+id/headerTitle"
+                android:layout_width="273dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Emergency Fund"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/treeIcon"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="end|center_vertical"
+                android:src="@drawable/tree_icon"
+                android:contentDescription="Tree Icon"
+                android:background="@android:color/transparent" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvCurrentEmergencyFundTotal"
+            android:layout_width="339dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="Current Emergency Fund: R0.00"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvEmergencyFundTotal"
+            android:layout_width="339dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="Total in Period: R0.00"
+            android:textColor="#008000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/periodRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="24dp">
+
+            <RadioButton
+                android:id="@+id/radioLastWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Week"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:id="@+id/radioLastMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Month"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:id="@+id/radioLastQuarter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Quarter"
+                android:textSize="13sp" />
+        </RadioGroup>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerEmergencyFundHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

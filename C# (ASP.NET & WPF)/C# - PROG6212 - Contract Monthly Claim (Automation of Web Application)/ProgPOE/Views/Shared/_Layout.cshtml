@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Contract Monthly Claim System</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        .footer {
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">CMCS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("LecturerDashboard", "Home")">Lecturer Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("CoordinatorDashboard", "Home")">Coordinator Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("AdminDashboard", "Home")">Admin Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("HRDashboard", "Home")">HR Dashboard</a></li>
+                </ul>
+
+                @if (TempData["LoggedInUserId"] != null)
+                {
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Logout", "Home")">Logout</a>
+                        </li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Login", "Home")">Login</a>
+                        </li>
+                    </ul>
+                }
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="footer mt-auto py-3 text-center">
+        <div class="container">
+            <p class="mb-0">&copy; @DateTime.Now.Year CMCS</p>
+            <p><a href="@Url.Action("Privacy", "Home")" class="text-white">Privacy</a></p>
+        </div>
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

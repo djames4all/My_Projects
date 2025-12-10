@@ -1,0 +1,20 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Soft surface base -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/cardSurface"/>
+            <corners android:radius="@dimen/card_radius"/>
+        </shape>
+    </item>
+
+    <!-- Top-to-bottom subtle brand tint -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="@color/brandTintLight"
+                android:endColor="@android:color/transparent"
+                android:angle="270"/>
+            <corners android:radius="@dimen/card_radius"/>
+        </shape>
+    </item>
+</layer-list>

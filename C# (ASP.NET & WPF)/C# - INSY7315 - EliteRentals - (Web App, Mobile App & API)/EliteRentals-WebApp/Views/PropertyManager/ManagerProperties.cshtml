@@ -1,0 +1,131 @@
+﻿@model IEnumerable<EliteRentals.Models.DTOs.PropertyReadDto>
+@{
+    ViewData["Title"] = "Manager • Properties";
+    Layout = "_Layout";
+}
+
+<style>
+  :root { --mgr-sidebar-w: 240px; }
+  @@media (min-width: 768px) {
+    .manager-main { margin-left: var(--mgr-sidebar-w); padding: 1.25rem 1.5rem; }
+    .manager-sidebar { width: var(--mgr-sidebar-w); position: fixed; top: 0; bottom: 0; overflow-y: auto; }
+  }
+  /* table polish to match leases page vibe */
+  .table thead th { position: sticky; top: 0; z-index: 1; background: #f8f9fa; }
+  .status-badge { font-weight: 500; }
+</style>
+
+<div class="container-fluid">
+  <div class="row">
+    @await Html.PartialAsync("_ManagerSidebar") 
+
+    <main class="manager-main col px-0">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 m-0">Properties</h2>
+        <a asp-action="ManagerPropertyCreate" class="btn btn-primary">Add Property</a>
+      </div>
+
+      @if (TempData["Toast"] is string ok && !string.IsNullOrWhiteSpace(ok))
+      {
+        <div class="alert alert-success py-2 mb-3">@ok</div>
+      }
+      @if (TempData["ToastError"] is string err && !string.IsNullOrWhiteSpace(err))
+      {
+        <div class="alert alert-danger py-2 mb-3">@err</div>
+      }
+      @if (ViewBag.Error != null)
+      {
+        <div class="alert alert-danger py-2 mb-3">@ViewBag.Error</div>
+      }
+
+      <div class="card shadow-sm">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+          <span class="fw-semibold">Property List</span>
+          <small class="text-muted">Total: @(Model?.Count() ?? 0)</small>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-sm table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th style="width:90px">ID</th>
+                <th style="min-width:220px">Title</th>
+                                <th style="width:120px">Image</th>
+                <th>Address</th>
+                <th style="width:180px">City</th>
+                <th style="width:140px">Status</th>
+                <th style="width:220px" class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @if (Model != null && Model.Any())
+              {
+                  foreach (var p in Model)
+                  {
+                      <tr>
+                        <td class="text-muted">#@p.PropertyId</td>
+                                        <td>
+                                            @if (p.ImageUrls != null && p.ImageUrls.Any())
+                                            {
+                                                <img src="@p.ImageUrls.First()" class="img-thumbnail" style="max-height:80px;" />
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted small">No image</span>
+                                            }
+                                        </td>
+
+                        <td class="fw-semibold">@p.Title</td>
+                        <td class="text-truncate" style="max-width: 420px;">@p.Address</td>
+                        <td>@p.City</td>
+                        <td>
+                          @{
+                              var isAvail = string.Equals(p.Status, "Available", System.StringComparison.OrdinalIgnoreCase);
+                              var badgeCls = isAvail ? "bg-success" : "bg-warning text-dark";
+                          }
+                          <span class="badge @badgeCls status-badge">@p.Status</span>
+                        </td>
+                        <td class="text-end">
+                          <a class="btn btn-sm btn-outline-primary me-1"
+                             asp-action="ManagerPropertyEdit" asp-route-id="@p.PropertyId">
+                            Edit
+                          </a>
+
+                          <!-- View public listing (same tab) -->
+                          <a class="btn btn-sm btn-outline-secondary me-1"
+                             asp-controller="ProspectiveTenant"
+                             asp-action="TenantListingDetails"
+                             asp-route-id="@p.PropertyId">
+                            View
+                          </a>
+
+                                            <form asp-action="ManagerPropertyDelete"
+                                                  asp-controller="PropertyManager"
+                                                  asp-route-id="@p.PropertyId"
+                                                  method="post"
+                                                  class="d-inline">
+                                                @Html.AntiForgeryToken()
+                                                <button type="submit"
+                                                        class="btn btn-sm btn-outline-danger me-1"
+                                                        onclick="return confirm('Delete property #@p.PropertyId (@p.Title)?')">
+                                                    Delete
+                                                </button>
+                                            </form>
+
+                        </td>
+                      </tr>
+                  }
+              }
+              else
+              {
+                  <tr>
+                    <td colspan="6" class="text-center text-muted py-4">No properties found.</td>
+                  </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

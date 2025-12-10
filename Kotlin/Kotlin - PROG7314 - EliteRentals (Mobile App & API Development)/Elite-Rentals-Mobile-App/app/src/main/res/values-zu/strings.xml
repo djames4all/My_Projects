@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Info -->
+    <string name="app_name">Elite Rentals</string>
+    <string name="server_client_id">166696853938-86rhhlf1b06ilmlpi9tpha1tj50nq5et.apps.googleusercontent.com</string>
+
+    <!-- Language options (displayed list) -->
+    <string-array name="language_options">
+        <item>IsiNgisi</item>
+        <item>isiZulu</item>
+    </string-array>
+
+    <!-- Errors, notifications and misc -->
+    <string name="error_login_required">Sicela ungene kuqala</string>
+    <string name="error_no_property">Ayikho indawo ehlotshaniswa nomqashi</string>
+    <string name="error_description_required">Sicela ufake incazelo</string>
+    <string name="maintenance_submit_success">Isicelo sokulungiswa sithunyelwe ngempumelelo</string>
+    <string name="maintenance_saved_offline">Sigcinwe endaweni — sizohambisana uma uxhumekile</string>
+    <string name="photo_selected">Isithombe sikhethiwe</string>
+
+    <string-array name="maintenance_categories">
+        <item>Umpompi</item>
+        <item>Ugesi</item>
+        <item>Izinsiza</item>
+        <item>Isakhiwo</item>
+        <item>Okunye</item>
+    </string-array>
+
+    <string-array name="urgency_levels">
+        <item>Phansi</item>
+        <item>Maphakathi</item>
+        <item>Phezulu</item>
+        <item>Okuphuthumayo</item>
+    </string-array>
+
+
+        <string name="chatbot_title">Umsizi</string>
+        <string name="chat_hint">Umlayezo…</string>
+        <string name="send">Thumela</string>
+        <string name="image_attached">Isithombe sinamathiselwe</string>
+
+
+
+    <!-- UI Strings -->
+    <string name="change_password">Shintsha iphasiwedi</string>
+    <string name="current_password">Iphasiwedi yanamuhla</string>
+    <string name="new_password">Iphasiwedi entsha</string>
+    <string name="logout">Phuma</string>
+    <string name="login">Ngena</string>
+    <string name="dark">Mnyama</string>
+    <string name="light">Khanya</string>
+    <string name="theme_high_contrast">Okuhlukile kakhulu</string>
+    <string name="use_biometric_login">Sebenzisa i-biometric login</string>
+    <string name="fill_fields">Sicela ugcwalise zonke izinkambu</string>
+    <string name="error">Iphutha</string>
+    <string name="back">Emuva</string>
+    <string name="right">Kwesokudla</string>
+    <string name="theme">Itimu</string>
+    <string name="settings">Izilungiselelo</string>
+    <string name="select_language">Khetha ulimi</string>
+    <string name="enter_valid_rent">Faka inani lerenti elivumelekile</string>
+    <string name="select_image">Sicela ukhethe isithombe</string>
+    <string name="property_saved">Indawo igcinwe ngempumelelo!</string>
+    <string name="property_error_code">Iphutha %1$d</string>
+    <string name="upload_failed_with_message">Ukulayisha kwehlulekile: %1$s</string>
+    <string name="property_updated">Indawo ibuyekeziwe ngempumelelo!</string>
+    <string name="update_failed_with_message">Ukubuyekezwa kwehlulekile: %1$s</string>
+    <string name="greeting">Sawubona, %1$s!</string>
+    <string name="lease_period">Inkontileka: %1$s → %2$s</string>
+    <string name="rent_status">Isimo serenti: %1$s</string>
+    <string name="rent_amount">R%1$d</string>
+    <string name="rent_due_days">Irenti izokhokhwa ezinsukwini ezingu-%1$d</string>
+    <string name="lease_end_days">Inkontileka iphela ezinsukwini ezingu-%1$d</string>
+    <string name="no_active_lease">Ayikho inkontileka esebenzayo</string>
+    <string name="rent_status_na">Isimo serenti: Akutholakali</string>
+    <string name="no_rent_due">Ayikho irenti ekhokhwayo</string>
+    <string name="lease_end_na">Inkontileka iphela: Akutholakali</string>
+    <string name="error_loading_lease">Iphutha ekulayisheni inkontileka</string>
+    <string name="rent_due_days_na">Akutholakali</string>
+
+    <!-- Maintenance / report -->
+    <string name="report_maintenance">Bika ukulungiswa</string>
+    <string name="page_title_maintenance">Maintenance Request</string>
+    <string name="label_category">Select Category</string>
+    <string name="label_urgency">Select Urgency</string>
+    <string name="label_upload_photo">Upload a photo</string>
+    <string name="label_description">Description</string>
+    <string name="hint_description">Describe the issue</string>
+    <string name="btn_submit">Submit</string>
+    <string name="sample_maintenance_title">Ipayipi elivuza ekhishini</string>
+    <string name="my_maintenance_requests">Izicelo Zokulungiswa Zami</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_maintenance">Maintenance</string>
+    <string name="nav_payments">Payments</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Chatbot / other -->
+    <string name="chatbot">I-chatbot</string>
+    <string name="rent_due_days_placeholder">Irenti izokhokhwa ezinsukwini ezingu-0</string>
+    <string name="upload_proof">Layisha ubufakazi</string>
+    <string name="invoice">Inibhulosi</string>
+    <string name="lease_period_placeholder">Inkontileka: 01 Jan 2025 → 31 Dec 2025</string>
+    <string name="lease_end_days_placeholder">Inkontileka iphela ezinsukwini ezingu-0</string>
+    <string name="rent_status_label">Isimo serenti</string>
+    <string name="rent_status_pending">Ukukhokhwa kusalindile</string>
+    <string name="rent_status_paid">Ikhokhiwe</string>
+    <string name="rent_status_overdue">Sekudlule isikhathi</string>
+    <string name="view_maintenance_requests">Buka izicelo zokulungiswa</string>
+
+    <!-- Status and misc -->
+    <string name="logged_at">Kubhalwe ngo: %1$s</string>
+    <string name="logged_at_placeholder">Kubhalwe ngo: --</string>
+    <string name="status_pending">Kusalindile</string>
+    <string name="status_in_progress">Kuyalungiswa</string>
+    <string name="status_resolved">Kuxazululiwe</string>
+    <string name="no_photo_uploaded">Azikho izithombe ezilayishiwe</string>
+    <string name="error_tenant_id_missing">I-ID yomqashi ayitholakali. Sicela ungene futhi.</string>
+    <string name="error_file_required">Sicela ukhethe ifayela kuqala.</string>
+    <string name="error_amount_date_required">Sicela ufake inani nosuku.</string>
+    <string name="payment_submit_success">Inkokhelo ithunyelwe ngempumelelo</string>
+    <string name="payment_saved_offline">Igcinwe endaweni — izohambisana uma uxhumekile</string>
+    <string name="unknown_file">Ifayela elingaziwa</string>
+    <string name="upload_payment_proof">Layisha Ubufakazi Benkokhelo</string>
+    <string name="payment_amount">Inani Lenkokhelo</string>
+    <string name="hint_payment_amount">Faka inani lenkokhelo</string>
+    <string name="payment_date">Usuku Lwenkokhelo</string>
+    <string name="hint_payment_date">Khetha usuku lenkokhelo</string>
+    <string name="choose_file">Khetha Ifayela</string>
+    <string name="no_file_selected">Alukho ifayela olukhethiwe</string>
+
+    <!-- Announcements / lists -->
+    <string name="tenants">Abahlali</string>
+    <string name="for_all_users">Kubasebenzisi bonke</string>
+    <string name="for_prefix">Kubasebenzisi</string>
+    <string name="error_loading_announcements">Yehlulekile ukulayisha izaziso</string>
+    <string name="error_network">Inkinga yenethiwekhi</string>
+    <string name="announcements_screen_desc">Isikrini sezaziso</string>
+    <string name="announcements_list_desc">Uhlu lwezaziso</string>
+    <string name="error_fill_fields">Sicela ugcwalise wonke amasimu</string>
+
+    <!-- Settings -->
+    <string name="password_updated">Iphasiwedi ibuyekeziwe</string>
+    <string name="error_generic">Iphutha: %1$s</string>
+    <string name="applying_theme">Kusetshenziswa itimu...</string>
+    <string name="biometric_description">Sebenzisa umunwe noma ubuso ukuze ungene</string>
+    <string name="select_theme">Khetha Itimu</string>
+    <string name="biometric_error">Iphutha lokungena: %1$s</string>
+    <string name="biometric_failed">Ukungena kwehlulekile</string>
+    <string name="welcome_user">Siyakwamukela %1$s</string>
+    <string name="unknown_role">Indima engaziwa: %1$s</string>
+
+    <!-- Login -->
+    <string name="login_missing_fields">Sicela ufake igama lomsebenzisi nephasiwedi</string>
+    <string name="login_empty_response">Impendulo engenalutho evela kuseva</string>
+    <string name="login_invalid_credentials">Izinkomba ezingavumelekile</string>
+    <string name="error_network_with_message">Iphutha lenethiwekhi: %1$s</string>
+    <string name="login_no_id_token">Ayikho i-ID Token eyamukelwayo</string>
+    <string name="login_sso_failed">Ukungena nge-SSO kwehlulekile</string>
+    <string name="biometric_success">Ukungena nge-biometric kuphumelele</string>
+    <string name="login_title">Ngena ngemvume</string>
+    <string name="hint_username">Igama lomsebenzisi</string>
+    <string name="hint_password">Iphasiwedi</string>
+    <string name="btn_login">Ngena</string>
+    <string name="divider_or">NOMA</string>
+    <string name="btn_google_login">Ngena nge-Google</string>
+    <string name="btn_fingerprint_login">Ngena nge-Fingerprint</string>
+    <string name="biometric_title">Ukungena nge-Biometric</string>
+    <string name="biometric_subtitle">Sebenzisa umunwe noma ubuso ukuze ungene</string>
+    <string name="cancel">Khansela</string>
+
+    <!-- Settings / misc -->
+    <string name="settings_fill_fields">Sicela ugcwalise wonke amasimu</string>
+    <string name="settings_password_updated">Iphasiwedi ibuyekeziwe</string>
+    <string name="settings_error_with_message">Iphutha: %1$s</string>
+    <string name="theme_applying">Kusetshenziswa itimu...</string>
+
+    <!-- Language labels -->
+    <string name="language_en">IsiNgisi</string>
+    <string name="language_zu">IsiZulu</string>
+
+    <string name="settings_logout_success">Uphumile ngempumelelo</string>
+
+
+        <string name="maintenance_request">Isicelo Sokulungisa</string>
+        <string name="select_category">Khetha isigaba</string>
+        <string name="select_urgency">Khetha ubukhulu bokuphuthuma</string>
+        <string name="upload_photo">Layisha isithombe</string>
+        <string name="description">Incazelo</string>
+        <string name="describe_issue">Chaza inkinga</string>
+        <string name="submit">Thumela</string>
+        <string name="dashboard">Ideshibhodi</string>
+        <string name="maintenance">Ukulungisa</string>
+        <string name="payments">Izinkokhelo</string>
+    <string name="tvCaretakerName">Sawubona, %1$s</string>
+    <string name="caretaker_fallback">Umnakekeli</string>
+
+
+        <!-- Caretaker greeting -->
+        <string name="hello_with_name">Sawubona, %1$s</string>
+
+
+        <!-- Task fetching -->
+        <string name="fetch_tasks_failed">Yehlulekile ukuthola imisebenzi</string>
+        <string name="fetch_tasks_error">Iphutha ekutholeni imisebenzi</string>
+
+        <!-- Status -->
+        <string name="update_status">Buyekeza Isimo</string>
+
+        <string name="status_updated">Isimo sibuyekeziwe</string>
+        <string name="status_update_failed">Yehlulekile ukubuyekeza isimo</string>
+        <string name="status_update_error">Iphutha ekubuyekezeni isimo</string>
+
+        <!-- Comments -->
+        <string name="add_comment">Faka Amazwana</string>
+        <string name="comment_hint">Faka amazwana kumqashi</string>
+
+        <string name="comment_empty">Amazwana awakwazi ukuba angenalutho</string>
+        <string name="comment_sent">Amazwana athunyelwe kumqashi</string>
+        <string name="comment_failed">Yehlulekile ukuthumela amazwana</string>
+        <string name="comment_error">Iphutha ekuthumeleni amazwana</string>
+
+        <!-- Photos -->
+        <string name="photo_updated">Isithombe sibuyekeziwe</string>
+        <string name="photo_update_failed">Yehlulekile ukubuyekeza isithombe</string>
+        <string name="photo_upload_error">Iphutha ekulayisheni isithombe</string>
+
+
+    <!-- Buttons and Actions -->
+
+    <string name="lease_pdf">Landa Isifinyezo Senkontileka</string>
+
+    <!-- Statuses -->
+
+    <string name="status_paid">Ikhokhiwe</string>
+    <string name="status_overdue">Kudlule Isikhathi</string>
+    <string name="status_no_payment">Akukho Kukhokhwa</string>
+
+    <!-- Notifications -->
+    <string name="notification_title">Izaziso</string>
+    <string name="notification_message">Unolwazi olusha</string>
+
+    <!-- Toasts -->
+    <string name="no_lease_found">Ayikho inkontileka esebenzayo</string>
+    <string name="lease_saved">Inkontileka igcinwe ku %1$s</string>
+    <string name="invoice_saved">I-invoice igcinwe ku %1$s</string>
+
+    <string name="hello_caretaker">Sawubona, Umlondolozi</string>
+    <string name="notifications">Izaziso</string>
+
+    <string name="sample_issue_title">Udonga Oluqhekekile</string>
+    <string name="logged_at_sample">Kurekhodiwe ngo: 2025/08/11 ngo-11:23 ekuseni</string>
+
+    <string name="edit_photo">Hlela Isithombe</string>
+
+
+        <string name="placeholder_caretaker_name">Sawubona, [Igama Lomlondolozi]</string>
+
+    <string name="total_leases">Izikweletu Eziphelele</string>
+    <string name="open_maintenance">Ukulungiswa Okukhona</string>
+    <string name="overdue_payments">Izinkokhelo Eziphelelwe Isikhathi</string>
+    <string name="properties_occupied">Izakhiwo Ezihlala Abahlali</string>
+
+    <string name="dashboard_title">I-Dashboard Yomphathi</string>
+    <string name="kpi_summary">Isifinyezo se-KPI</string>
+    <string name="alerts">Izexwayiso</string>
+    <string name="no_alerts">Azikho izexwayiso</string>
+    <string name="charts">Amashadi</string>
+    <string name="payments_collected_trend">Umkhuba Wezinkokhelo Eziqoqiwe</string>
+    <string name="expiring_leases_trend">Umkhuba Wezikweletu Ezizophela</string>
+    <string name="generated_by">Kwakhiwe uhlelo lokusebenza lwe-Elite Rentals</string>
+    <string name="pdf_no_viewer">Ayikho i-PDF viewer etholakalayo</string>
+    <string name="system_users">Abasebenzisi Besistimu</string>
+
+    <string name="admin_dashboard">I-Dashboard Yomphathi</string>
+
+    <string name="export_pdf_report">🚀 Thumela Umbiko we-PDF ✨</string>
+
+    <string name="alerts_header">🔔 Izexwayiso 🚨</string>
+    <string name="recent_items_header">📊 Izinto Zakamuva 🆕</string>
+    <string name="leases_header">📑 Izivumelwano Zokuqasha</string>
+    <string name="maintenance_header">🔧 Ukugcinwa</string>
+    <string name="payments_header">💰 Izinkokhelo</string>
+
+
+
+    <string name="pdf_dashboard_report_title">Umbiko weDashboard we-Admin we-Elite Rentals</string>
+    <string name="pdf_date">Usuku: %1$s</string>
+
+    <string name="total_leases_colon">• Izivumelwano Zokuqasha: %1$s</string>
+    <string name="open_maintenance_colon">• Ukugcinwa Okungavuliwe: %1$s</string>
+    <string name="overdue_payments_colon">• Izinkokhelo Ezidlulelwe Isikhathi: %1$s</string>
+    <string name="properties_occupied_colon">• Izakhiwo Ezitholakele: %1$s</string>
+
+
+    <string name="charts_section">Amachati:</string>
+    <string name="payments_trends_note">• Izinkokhelo Eziqoqiwe: Bheka idashboard ukuthola imikhuba ebonakalayo</string>
+    <string name="leases_expiry_note">• Izivumelwano Zokuqasha Ezizophela: Bheka idashboard ukuthola imikhuba ebonakalayo</string>
+    <string name="pdf_saved_path">Umbiko we-PDF ugciniwe ku %1$s</string>
+    <string name="no_pdf_viewer">Akukho mbonisi we-PDF otholakalayo</string>
+
+    <string name="hi_manager">Sawubona, Mphathi!</string>
+    <string name="assign_caretakers">Qoka Abanakekeli</string>
+    <string name="manage_properties">Phatha Izakhiwo</string>
+    <string name="manage_tenants">Phatha Abaqashi</string>
+    <string name="assign_leases">Qoka Izivumelwano</string>
+    <string name="assign_maintenance">Qoka Ukugcinwa</string>
+    <string name="register_tenant">Bhalisa Umqashi</string>
+
+    <string name="generate_report">Dala Umbiko</string>
+    <string name="view_payments">Buka Izinkokhelo</string>
+    <string name="toast_coming_soon">Kuze Kufike</string>
+
+    <string name="manage_properties_desc">Isithonjana Sokuphatha Izakhiwo</string>
+
+    <string name="manage_tenants_desc">Isithonjana Sokuphatha Abahlali</string>
+
+    <string name="assign_leases_desc">Isithonjana Sokunikezela Izivumelwano</string>
+
+    <string name="assign_maintenance_desc">Isithonjana Sokunikezela Ukulungisa</string>
+
+    <string name="register_tenant_desc">Isithonjana Sokubhalisa Umlali</string>
+
+    <string name="settings_desc">Isithonjana Sezilungiselelo</string>
+
+    <string name="generate_report_desc">Isithonjana Sokudala Umbiko</string>
+
+    <string name="view_payments_desc">Isithonjana Sokubuka Izinkokhelo</string>
+    <string name="logo_desc">Uphawu Lohlelo</string>
+    <string name="notifications_desc">Isithonjana Sezaziso</string>
+    <string name="requests_icon_desc">Isithonjana Sezicelo</string>
+    <string name="coming_soon">Kuzofika Maduzane</string>
+
+
+
+
+
+
+
+
+</resources>

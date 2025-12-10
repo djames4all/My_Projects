@@ -1,0 +1,85 @@
+﻿@model IEnumerable<CMCS.Controllers.Claim>
+@{
+    ViewData["Title"] = "Coordinator Dashboard";
+}
+<!-- ST10393280 -->
+<div class="container">
+    <h1 class="mt-4">Coordinator Dashboard</h1>
+
+    <div class="card mt-4">
+        <div class="card-header">Pending Claims</div>
+        <div class="card-body">
+            @if (!Model.Any(c => c.Status == "Pending"))
+            {
+                <p>No pending claims available.</p>
+            }
+            else
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Lecturer</th>
+                            <th>Hours Worked</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var claim in Model.Where(c => c.Status == "Pending"))
+                        {
+                            <tr id="claim-@claim.Id">
+                                <td>@claim.Id</td>
+                                <td>@claim.Submitter</td>
+                                <td>@claim.HoursWorked</td>
+                                <td class="claim-status">@claim.Status</td>
+                                <td>
+                                    <button class="btn btn-success" onclick="updateClaimStatus(@claim.Id, 'Accepted')">Accept</button>
+                                    <button class="btn btn-danger" onclick="updateClaimStatus(@claim.Id, 'Rejected')">Reject</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    var claims = @Html.Raw(Json.Serialize(Model));
+
+    function updateClaimStatus(id, status) {
+        // Find the claim in the array by its ID
+        var claim = claims.find(c => c.Id === id);
+        if (claim) {
+            // Update the status in the array
+            claim.Status = status;
+
+            // Update the status on the page
+            document.querySelector(`#claim-${id} .claim-status`).innerText = status;
+
+            // Send an Ajax request to update the status in the server-side data
+            $.ajax({
+                url: '/Home/UpdateClaimStatus',  // Action URL
+                type: 'POST',
+                data: {
+                    claimId: id,   // Claim ID
+                    status: status // Updated status
+                },
+                success: function (response) {
+                    if (response.success) {
+                        console.log("Claim status updated successfully.");
+                    } else {
+                        console.log("Error updating claim status.");
+                    }
+                },
+                error: function () {
+                    console.log("Error making the AJAX request.");
+                    // Optional: revert the status on failure to 'Pending'
+                    document.querySelector(`#claim-${id} .claim-status`).innerText = 'Pending';
+                }
+            });
+        }
+    }
+</script>

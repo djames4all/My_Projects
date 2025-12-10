@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Coordinator Dashboard";
+}
+
+<!-- ST10393280 -->
+<div class="container mt-5" style="max-width: 1200px; margin: auto;">
+    <h2 class="mb-4 text-center">Coordinator Dashboard</h2>
+    <div class="card shadow-sm" style="border-radius: 10px;">
+        <div class="card-header bg-info text-white" style="border-radius: 10px 10px 0 0;">Pending Claims</div>
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Date</th>
+                        <th>Lecturer</th>
+                        <th>Claim Amount</th>
+                        <th>Hours Worked</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10/09/2024</td>
+                        <td>Daniel James</td>
+                        <td>R1200</td>
+                        <td>20</td>
+                        <td>
+                            <button class="btn btn-success btn-sm approveBtn"><i class="fas fa-check"></i> Approve</button>
+                            <button class="btn btn-danger btn-sm rejectBtn"><i class="fas fa-times"></i> Reject</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>03/09/2024</td>
+                        <td>Sai Surujpal</td>
+                        <td>R2300</td>
+                        <td>37</td>
+                        <td>
+                            <button class="btn btn-success btn-sm approveBtn"><i class="fas fa-check"></i> Approve</button>
+                            <button class="btn btn-danger btn-sm rejectBtn"><i class="fas fa-times"></i> Reject</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>03/09/2024</td>
+                        <td>Amy Jones</td>
+                        <td>R2500</td>
+                        <td>24</td>
+                        <td>
+                            <button class="btn btn-success btn-sm approveBtn"><i class="fas fa-check"></i> Approve</button>
+                            <button class="btn btn-danger btn-sm rejectBtn"><i class="fas fa-times"></i> Reject</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>03/09/2024</td>
+                        <td>Ethan Bowes</td>
+                        <td>R3300</td>
+                        <td>33</td>
+                        <td>
+                            <button class="btn btn-success btn-sm approveBtn"><i class="fas fa-check"></i> Approve</button>
+                            <button class="btn btn-danger btn-sm rejectBtn"><i class="fas fa-times"></i> Reject</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script>
+    // Simulate Claim Approval
+    $('.approveBtn').on('click', function() {
+        alert('Claim approved successfully!');
+    });
+
+    // Simulate Claim Rejection
+    $('.rejectBtn').on('click', function() {
+        alert('Claim rejected!');
+    });
+</script>

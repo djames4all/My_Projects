@@ -1,0 +1,2679 @@
+[
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.InvoiceController",
+    "Method": "Create",
+    "RelativePath": "api/Invoice",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "InvoiceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.PasswordHash",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.Role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.LanguagePreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.NotificationPreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LeaseId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.LeaseId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.PropertyId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.PropertyId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.ManagerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.PasswordHash",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.Role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.LanguagePreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.NotificationPreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Province",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.RentAmount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.NumOfBedrooms",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.NumOfBathrooms",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.ParkingType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.NumOfParkingSpots",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.PetFriendly",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.ListingDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Images",
+        "Type": "System.Collections.Generic.ICollection\u00601[[EliteRentalsAPI.Models.PropertyImage, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Leases",
+        "Type": "System.Collections.Generic.ICollection\u00601[[EliteRentalsAPI.Models.Lease, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.PasswordHash",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.Role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.LanguagePreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.NotificationPreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.StartDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.EndDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Deposit",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.DocumentData",
+        "Type": "System.Byte[]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.DocumentType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.IsArchived",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.ArchivedDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Amount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "DueDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PdfData",
+        "Type": "System.Byte[]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PdfType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "pdf",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Invoice",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.InvoiceController",
+    "Method": "GetAll",
+    "RelativePath": "api/Invoice",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Invoice, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.InvoiceController",
+    "Method": "Get",
+    "RelativePath": "api/Invoice/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Invoice",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.InvoiceController",
+    "Method": "GetPdf",
+    "RelativePath": "api/Invoice/{id}/pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.InvoiceController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/Invoice/{id}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.InvoiceStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.InvoiceController",
+    "Method": "GetTenantInvoices",
+    "RelativePath": "api/Invoice/tenant/{tenantId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tenantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Invoice, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "Create",
+    "RelativePath": "api/Lease",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "lease",
+        "Type": "EliteRentalsAPI.Models.Lease",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Lease",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "GetAll",
+    "RelativePath": "api/Lease",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "Get",
+    "RelativePath": "api/Lease/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Lease",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "Update",
+    "RelativePath": "api/Lease/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updated",
+        "Type": "EliteRentalsAPI.Models.Lease",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "Delete",
+    "RelativePath": "api/Lease/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "GetDocument",
+    "RelativePath": "api/Lease/{id}/document",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "Archive",
+    "RelativePath": "api/Lease/archive/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "GetArchived",
+    "RelativePath": "api/Lease/archived",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "Restore",
+    "RelativePath": "api/Lease/restore/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "Create",
+    "RelativePath": "api/Maintenance",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "MaintenanceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.PasswordHash",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.Role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.LanguagePreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.NotificationPreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PropertyId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.PropertyId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.ManagerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.PasswordHash",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.Role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.LanguagePreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.NotificationPreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Province",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.RentAmount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.NumOfBedrooms",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.NumOfBathrooms",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.ParkingType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.NumOfParkingSpots",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.PetFriendly",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.ListingDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Images",
+        "Type": "System.Collections.Generic.ICollection\u00601[[EliteRentalsAPI.Models.PropertyImage, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Leases",
+        "Type": "System.Collections.Generic.ICollection\u00601[[EliteRentalsAPI.Models.Lease, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "AssignedCaretakerId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.PasswordHash",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.Role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.LanguagePreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.NotificationPreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Urgency",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProofData",
+        "Type": "System.Byte[]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProofType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "UpdatedAt",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "proof",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Maintenance",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "GetAll",
+    "RelativePath": "api/Maintenance",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Maintenance, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "Get",
+    "RelativePath": "api/Maintenance/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Maintenance",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "AssignCaretaker",
+    "RelativePath": "api/Maintenance/{id}/assign-caretaker",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.AssignCaretakerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "AddComment",
+    "RelativePath": "api/Maintenance/{id}/comment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.MaintenanceCommentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "GetProof",
+    "RelativePath": "api/Maintenance/{id}/proof",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "UpdateProof",
+    "RelativePath": "api/Maintenance/{id}/proof",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "proof",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/Maintenance/{id}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.MaintenanceStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "GetCaretakerRequests",
+    "RelativePath": "api/Maintenance/caretaker-requests",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Maintenance, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "GetTenantRequests",
+    "RelativePath": "api/Maintenance/my-requests",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Maintenance, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "Send",
+    "RelativePath": "api/Message",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "msg",
+        "Type": "EliteRentalsAPI.Models.Message",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Message",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "GetById",
+    "RelativePath": "api/Message/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Message",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "GetAnnouncements",
+    "RelativePath": "api/Message/announcements/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Message, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "ArchiveMessage",
+    "RelativePath": "api/Message/archive/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "GetArchivedMessages",
+    "RelativePath": "api/Message/archived/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Message, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "SendBroadcast",
+    "RelativePath": "api/Message/broadcast",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "msg",
+        "Type": "EliteRentalsAPI.Models.Message",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Message",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "GetConversation",
+    "RelativePath": "api/Message/conversation/{user1}/{user2}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user1",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "user2",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Message, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "GetInbox",
+    "RelativePath": "api/Message/inbox/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Message, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "NotifyMaintenanceUpdate",
+    "RelativePath": "api/Message/maintenance-update/{maintenanceId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maintenanceId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "NotifyEscalation",
+    "RelativePath": "api/Message/notify-escalation/{escalationId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "escalationId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "description",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "SendRentReminder",
+    "RelativePath": "api/Message/remind-rent/{tenantId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tenantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dueDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "RestoreMessage",
+    "RelativePath": "api/Message/restore/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "GetSent",
+    "RelativePath": "api/Message/sent/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Message, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "TestPush",
+    "RelativePath": "api/Message/testpush/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.NotificationController",
+    "Method": "Create",
+    "RelativePath": "api/Notification",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "n",
+        "Type": "EliteRentalsAPI.Models.Notification",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Notification",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.NotificationController",
+    "Method": "MarkAsRead",
+    "RelativePath": "api/Notification/{id}/read",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.NotificationController",
+    "Method": "Broadcast",
+    "RelativePath": "api/Notification/broadcast",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Controllers.NotificationController\u002BBroadcastDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.NotificationController",
+    "Method": "GetByUser",
+    "RelativePath": "api/Notification/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Notification, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PaymentController",
+    "Method": "Create",
+    "RelativePath": "api/Payment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Amount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Date",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "proof",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Payment",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PaymentController",
+    "Method": "GetAll",
+    "RelativePath": "api/Payment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Payment, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PaymentController",
+    "Method": "Get",
+    "RelativePath": "api/Payment/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Payment",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PaymentController",
+    "Method": "GetProof",
+    "RelativePath": "api/Payment/{id}/proof",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PaymentController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/Payment/{id}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.PaymentStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PaymentController",
+    "Method": "GetTenantPayments",
+    "RelativePath": "api/Payment/tenant/{tenantId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tenantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Payment, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PropertyController",
+    "Method": "Create",
+    "RelativePath": "api/Property",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Province",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "RentAmount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "NumOfBedrooms",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "NumOfBathrooms",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ParkingType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NumOfParkingSpots",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PetFriendly",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Property",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PropertyController",
+    "Method": "GetAll",
+    "RelativePath": "api/Property",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.DTOs.PropertyReadDto, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PropertyController",
+    "Method": "Get",
+    "RelativePath": "api/Property/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.DTOs.PropertyReadDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PropertyController",
+    "Method": "Update",
+    "RelativePath": "api/Property/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Province",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "RentAmount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "NumOfBedrooms",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "NumOfBathrooms",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ParkingType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NumOfParkingSpots",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PetFriendly",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PropertyController",
+    "Method": "Delete",
+    "RelativePath": "api/Property/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.PropertyController",
+    "Method": "GetImage",
+    "RelativePath": "api/Property/image/{imageId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.RentalApplicationsController",
+    "Method": "Create",
+    "RelativePath": "api/RentalApplications",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ApplicationId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PropertyId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.PropertyId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.ManagerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.PasswordHash",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.Role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.LanguagePreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.NotificationPreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Province",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.RentAmount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.NumOfBedrooms",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.NumOfBathrooms",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.ParkingType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.NumOfParkingSpots",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.PetFriendly",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.ListingDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Images",
+        "Type": "System.Collections.Generic.ICollection\u00601[[EliteRentalsAPI.Models.PropertyImage, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Leases",
+        "Type": "System.Collections.Generic.ICollection\u00601[[EliteRentalsAPI.Models.Lease, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ApplicantName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Phone",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DocumentData",
+        "Type": "System.Byte[]",
+        "IsRequired": false
+      },
+      {
+        "Name": "DocumentType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "document",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.RentalApplication",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.RentalApplicationsController",
+    "Method": "GetAll",
+    "RelativePath": "api/RentalApplications",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.RentalApplication, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.RentalApplicationsController",
+    "Method": "Get",
+    "RelativePath": "api/RentalApplications/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.RentalApplication",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.RentalApplicationsController",
+    "Method": "GetDocument",
+    "RelativePath": "api/RentalApplications/{id}/document",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.RentalApplicationsController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/RentalApplications/{id}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.RentalApplicationStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.ReportController",
+    "Method": "Create",
+    "RelativePath": "api/Report",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ReportId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ManagerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.PasswordHash",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.Role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.LanguagePreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.NotificationPreference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "GeneratedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "ReportData",
+        "Type": "System.Byte[]",
+        "IsRequired": false
+      },
+      {
+        "Name": "FileType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Report",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.ReportController",
+    "Method": "GetAll",
+    "RelativePath": "api/Report",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Report, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.ReportController",
+    "Method": "Get",
+    "RelativePath": "api/Report/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Report",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.ReportController",
+    "Method": "GetFile",
+    "RelativePath": "api/Report/{id}/file",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/Users/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "update",
+        "Type": "EliteRentalsAPI.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "GetById",
+    "RelativePath": "api/Users/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.User",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "UpdateFcmToken",
+    "RelativePath": "api/Users/{id}/fcmtoken",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Controllers.UsersController\u002BFcmTokenDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/Users/{id}/password",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "ChangeStatus",
+    "RelativePath": "api/Users/{id}/status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "Login",
+    "RelativePath": "api/Users/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Controllers.UsersController\u002BLoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "Signup",
+    "RelativePath": "api/Users/signup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "SsoLogin",
+    "RelativePath": "api/Users/sso",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.SsoLoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

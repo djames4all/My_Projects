@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Banner Section -->
+<div class="banner-carousel">
+    <div class="banner-slide active">
+        <img src="~/images/farm1.jpg" alt="Farm Image 1" />
+    </div>
+    <div class="banner-slide">
+        <img src="~/images/farm2.jpg" alt="Farm Image 2" />
+    </div>
+</div>
+
+<!-- Welcome Section -->
+<section class="welcome-section">
+    <div class="container">
+        <h1>Welcome to AgriTrack</h1>
+        <p class="tagline">Efficiently manage farmers, their profiles, and agricultural products.</p>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Product" asp-action="Index" class="btn-main">Go to Dashboard</a>
+        }
+        else
+        {
+            <div class="auth-links">
+                <a asp-area="Identity" asp-page="/Account/Register" class="btn-register">Register</a>
+                <a asp-area="Identity" asp-page="/Account/Login" class="btn-login">Login</a>
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="container">
+        <div class="feature-box">
+            <h3>Farmer Management</h3>
+            <p>Easily create and manage farmer profiles with full control and visibility.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Product Tracking</h3>
+            <p>View, filter, and analyze crops and goods across different farmers.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Role-Based Access</h3>
+            <p>Farmers and Employees see only what matters to them, securely and efficiently.</p>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+    <div class="container">
+        <h2>About AgriTrack</h2>
+        <p>
+            AgriTrack is designed to support agricultural operations by streamlining the process of managing
+            farmer profiles and their products. The platform provides a secure, responsive, and intuitive interface
+            to empower both Farmers and Employees.
+        </p>
+    </div>
+</section>

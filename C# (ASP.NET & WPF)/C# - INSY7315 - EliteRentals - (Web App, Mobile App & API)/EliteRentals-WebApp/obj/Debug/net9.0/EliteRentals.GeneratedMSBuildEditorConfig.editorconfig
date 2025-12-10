@@ -1,0 +1,329 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EliteRentals
+build_property.RootNamespace = EliteRentals
+build_property.ProjectDir = /Users/ayush/C#_Projects/EliteRentals-WebApp/Untitled/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/ayush/C#_Projects/EliteRentals-WebApp/Untitled
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Account/GoogleLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Hb29nbGVMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AddLease.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRkTGVhc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AddUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRkVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminChatbot.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5DaGF0Ym90LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5EYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminLeases.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5MZWFzZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminMaintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5NYWludGVuYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminMessages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5NZXNzYWdlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminPayments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5QYXltZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminProperties.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5Qcm9wZXJ0aWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminPropertyCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5Qcm9wZXJ0eUNyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminPropertyEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5Qcm9wZXJ0eUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminPropertyView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5Qcm9wZXJ0eVZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminReports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5SZXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminSettings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5TZXR0aW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/AdminSystemUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5TeXN0ZW1Vc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/ArchivedLeases.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQXJjaGl2ZWRMZWFzZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/ArchivedMessages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQXJjaGl2ZWRNZXNzYWdlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/DeleteLease.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRGVsZXRlTGVhc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/DeleteLeaseConfirmed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRGVsZXRlTGVhc2VDb25maXJtZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/EditLease.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRWRpdExlYXNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRWRpdFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/ViewConversation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVmlld0NvbnZlcnNhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/ViewLease.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVmlld0xlYXNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/ViewMaintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVmlld01haW50ZW5hbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Admin/ViewPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVmlld1BheW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Home/AboutUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BYm91dFVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Home/ContactSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Db250YWN0U3VjY2Vzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Home/ContactUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Db250YWN0VXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Home/OurServices.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9PdXJTZXJ2aWNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/AddLease.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL0FkZExlYXNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/AddUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL0FkZFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ArchivedLeases.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL0FyY2hpdmVkTGVhc2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ArchivedMessages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL0FyY2hpdmVkTWVzc2FnZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/DeleteLease.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL0RlbGV0ZUxlYXNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/DeleteLeaseConfirmed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL0RlbGV0ZUxlYXNlQ29uZmlybWVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/EditLease.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL0VkaXRMZWFzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL0VkaXRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerApplications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJBcHBsaWNhdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerChatbot.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJDaGF0Ym90LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerEscalations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJFc2NhbGF0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerLeases.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJMZWFzZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerMaintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJNYWludGVuYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerMessages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJNZXNzYWdlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerPayments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJQYXltZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerProperties.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJQcm9wZXJ0aWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerPropertyCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJQcm9wZXJ0eUNyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerPropertyEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJQcm9wZXJ0eUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerSettings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJTZXR0aW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ManagerTenants.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL01hbmFnZXJUZW5hbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ViewApplication.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL1ZpZXdBcHBsaWNhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ViewConversation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL1ZpZXdDb252ZXJzYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ViewLease.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL1ZpZXdMZWFzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ViewMaintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL1ZpZXdNYWludGVuYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/PropertyManager/ViewPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvcGVydHlNYW5hZ2VyL1ZpZXdQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/ProspectiveTenant/AllApartments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvc3BlY3RpdmVUZW5hbnQvQWxsQXBhcnRtZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/ProspectiveTenant/AllFeatured.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvc3BlY3RpdmVUZW5hbnQvQWxsRmVhdHVyZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/ProspectiveTenant/AllHouses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvc3BlY3RpdmVUZW5hbnQvQWxsSG91c2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/ProspectiveTenant/AllTownhouses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvc3BlY3RpdmVUZW5hbnQvQWxsVG93bmhvdXNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/ProspectiveTenant/TenantApplicationForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvc3BlY3RpdmVUZW5hbnQvVGVuYW50QXBwbGljYXRpb25Gb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/ProspectiveTenant/TenantListingDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvc3BlY3RpdmVUZW5hbnQvVGVuYW50TGlzdGluZ0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/ProspectiveTenant/TenantPropertyListings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvc3BlY3RpdmVUZW5hbnQvVGVuYW50UHJvcGVydHlMaXN0aW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Shared/_AdminSidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19BZG1pblNpZGViYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Shared/_ManagerSidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19NYW5hZ2VyU2lkZWJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ayush/C\#_Projects/EliteRentals-WebApp/Untitled/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-qd0oonxy5a

@@ -1,0 +1,59 @@
+﻿@model Prog7311_POE_Part2.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="display-4 text-center my-4">Product Details</h1>
+
+<div class="container">
+    <h4 class="mb-4">Product Information</h4>
+    <hr />
+
+    <!-- Table to display product details -->
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th scope="row" class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <td>@Html.DisplayFor(model => model.ProductName)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.ProductDescription)
+                </th>
+                <td>@Html.DisplayFor(model => model.ProductDescription)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.ProductCategory)
+                </th>
+                <td>@Html.DisplayFor(model => model.ProductCategory)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.ProductionDate)
+                </th>
+                <td>@Html.DisplayFor(model => model.ProductionDate)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.ProductQuantity)
+                </th>
+                <td>@Html.DisplayFor(model => model.ProductQuantity)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.ProductUnitPrice)
+                </th>
+                <td>@Model.ProductUnitPrice</td> <!-- Display without formatting -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center mt-4">
+    <a asp-action="Edit" asp-route-id="@Model?.ProductId" class="btn btn-warning btn-lg mr-3">Edit</a>
+    <a asp-action="Index" class="btn btn-primary btn-lg">Back to List</a>
+</div>

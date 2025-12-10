@@ -1,0 +1,204 @@
+﻿@model EliteRentals.Models.ViewModels.PropertyListViewModel
+@{
+    ViewData["Title"] = "Home - Elite Rentals";
+}
+
+<div class="container-fluid p-0">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section position-relative text-white text-center d-flex align-items-center justify-content-center"
+             style="background: url('/images/hero.jpg') center center / cover no-repeat; min-height: 60vh;">
+        <div class="overlay position-absolute top-0 start-0 w-100 h-100"
+             style="background: rgba(0, 0, 0, 0.55);"></div>
+
+        <div class="container position-relative z-1 py-5 px-4">
+            <h1 class="fw-bold mb-3 display-4 animate__animated animate__fadeInDown">
+                Elite Rentals
+            </h1>
+            <p class="lead mb-4 animate__animated animate__fadeInUp fs-5">
+                Your trusted platform for renting, managing, and maintaining properties with ease.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3 animate__animated animate__fadeInUp">
+                <a asp-controller="ProspectiveTenant" asp-action="TenantPropertyListings"
+                   class="btn btn-light btn-lg px-4 py-2 rounded-pill shadow-sm">
+                    <i class="bi bi-house-door-fill me-2"></i> Browse Properties
+                </a>
+                <a asp-controller="Account" asp-action="Register"
+                   class="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
+                    <i class="bi bi-person-plus-fill me-2"></i> Get Started
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED LISTINGS -->
+    <section class="container my-5 py-3">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold mb-0">Featured Listings</h2>
+            <a asp-controller="ProspectiveTenant" asp-action="TenantPropertyListings"
+               class="btn btn-outline-primary btn-sm rounded-pill">
+                View All
+            </a>
+        </div>
+
+        @if (Model.Items != null && Model.Items.Any())
+        {
+            var random = new Random();
+            var featured = Model.Items.OrderBy(x => random.Next()).Take(3).ToList();
+
+            <div class="row g-4">
+                @foreach (var p in featured)
+                {
+                    var imgSrc = p.ImageUrls?.FirstOrDefault() ?? "https://via.placeholder.com/800x600?text=No+Image";
+                    <div class="col-12 col-md-4">
+                        <div class="card shadow-sm border-0 rounded-4 h-100 hover-shadow-lg animate__animated animate__fadeInUp">
+                            <div class="ratio ratio-16x9 rounded-top-4 overflow-hidden">
+                                <img src="@imgSrc" class="w-100 h-100 object-fit-cover" alt="@p.Title" />
+                                     onerror="this.src='https://via.placeholder.com/800x600?text=No+Image';" />
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-1">
+                                    <h5 class="fw-bold text-primary mb-0">
+                                        @(!string.IsNullOrWhiteSpace(p.Title) ? p.Title : "Untitled Property")
+                                    </h5>
+                                    <span class="badge bg-@(p.Status?.ToLower() == "available" ? "success" : (p.Status?.ToLower() == "rented" ? "secondary" : "warning"))">
+                                        @(p.Status ?? "Unknown")
+                                    </span>
+                                </div>
+                                <p class="text-muted small mb-2">@p.Address, @p.City</p>
+                                <div class="text-muted small mb-3">
+                                    <span class="me-3"><i class="bi bi-door-open"></i> @p.NumOfBedrooms bed</span>
+                                    <span class="me-3"><i class="bi bi-droplet"></i> @p.NumOfBathrooms bath</span>
+                                    <span><i class="bi bi-paw"></i> @(p.PetFriendly ? "Pets allowed" : "No pets")</span>
+                                </div>
+                                <div class="h5 text-dark fw-bold mb-3">R @p.RentAmount</div>
+                                <a asp-controller="ProspectiveTenant" asp-action="TenantListingDetails"
+                                   asp-route-id="@p.PropertyId"
+                                   class="btn btn-outline-primary w-100 mt-auto rounded-pill">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <h5 class="fw-bold mb-2">No featured properties available</h5>
+                <p class="text-muted">Please check back later for updates.</p>
+            </div>
+        }
+    </section>
+
+    <!-- POPULAR LOCATIONS -->
+    <section class="container my-5">
+        <h2 class="fw-bold mb-4 text-center">Popular Locations</h2>
+        <div class="row g-4">
+            @foreach (var loc in new[]
+                        {
+                        new { Name = "Sandton", Count = 25, Image = "/images/sandton.jpg" },
+                        new { Name = "Rosebank", Count = 18, Image = "/images/rosebank.jpg" },
+                        new { Name = "Midrand", Count = 12, Image = "/images/midrand.jpg" },
+                        new { Name = "Bryanston", Count = 8, Image = "/images/bryanston.jpg" }
+                        })
+            {
+                <div class="col-6 col-md-3 d-flex">
+                    <div class="card shadow-sm border-0 rounded-4 text-center flex-fill hover-shadow-lg h-100">
+                        <div class="ratio ratio-16x9 rounded-top-4 overflow-hidden">
+                            <img src="@loc.Image" class="w-100 h-100 object-fit-cover" alt="@loc.Name" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-1">@loc.Name</h5>
+                            <p class="text-muted mb-0">@loc.Count Properties</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="container my-5">
+        <h2 class="fw-bold mb-4 text-center">How Elite Rentals Works</h2>
+        <div class="row g-4">
+            @foreach (var step in new[]
+                        {
+                        new { Title = "Search Properties", Text = "Browse verified listings in apartments, houses, and townhouses quickly and easily.", Image = "/images/search-properties.jpg" },
+                        new { Title = "Apply Online", Text = "Complete rental applications securely with a few clicks, from anywhere.", Image = "/images/apply-online.jpg" },
+                        new { Title = "Move In", Text = "Get approved and move in quickly with seamless digital processes and instant notifications.", Image = "/images/move-in.jpg" }
+                        })
+            {
+                <div class="col-12 col-md-4 d-flex">
+                    <div class="card shadow-sm border-0 rounded-4 text-center flex-fill hover-shadow-lg h-100">
+                        <div class="ratio ratio-16x9 rounded-top-4 overflow-hidden">
+                            <img src="@step.Image" class="w-100 h-100 object-fit-cover" alt="@step.Title" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">@step.Title</h5>
+                            <p class="text-muted mb-0">@step.Text</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="container my-5">
+        <h2 class="fw-bold mb-4 text-center">What Our Users Say</h2>
+        <div class="row g-4">
+            @foreach (var testimonial in new[]
+                        {
+                        new { Text = "Elite Rentals made finding my apartment fast and stress-free. Highly recommend!", Author = "Evee J." },
+                        new { Text = "Applying and moving in was so smooth. The platform is very user-friendly.", Author = "Sophia H." },
+                        new { Text = "Excellent listings and responsive support. I found my dream rental here!", Author = "Zoe N." }
+                        })
+            {
+                <div class="col-12 col-md-4">
+                    <div class="card shadow-sm border-0 p-4 rounded-4 text-center hover-shadow-lg animate__animated animate__fadeInUp">
+                        <p class="fst-italic text-muted">"@testimonial.Text"</p>
+                        <h6 class="fw-bold mt-3">– @testimonial.Author</h6>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <!-- PLATFORM STATS -->
+    <section class="bg-light py-5 text-center">
+        <div class="container">
+            <div class="row g-4" id="platformStats">
+                <div class="col-6 col-md-3">
+                    <h3 class="fw-bold text-primary mb-0">+1,200</h3>
+                    <p class="text-muted">Active Listings</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h3 class="fw-bold text-primary mb-0">+800</h3>
+                    <p class="text-muted">Happy Tenants</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h3 class="fw-bold text-primary mb-0">+150</h3>
+                    <p class="text-muted">Property Managers</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h3 class="fw-bold text-primary mb-0">24/7</h3>
+                    <p class="text-muted">Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-3">Ready to get started?</h2>
+            <p class="mb-4">Whether you are a tenant, manager, or admin, Elite Rentals makes rental management simple and efficient.</p>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-light btn-lg rounded-pill shadow-sm">
+                Sign Up Now
+            </a>
+        </div>
+    </section>
+
+</div>

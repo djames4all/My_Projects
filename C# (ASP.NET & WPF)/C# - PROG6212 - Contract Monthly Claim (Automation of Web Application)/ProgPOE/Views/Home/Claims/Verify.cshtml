@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ProgPOE.Models.ClaimModel>
+
+@{
+    ViewData["Title"] = "Verify Claims";
+}
+<!-- ST10393280 -->
+<h2>Pending Claims</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lecturer Name</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>File</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.LecturerName</td> <!-- Ensure LecturerName exists in your ClaimModel -->
+                <td>@claim.HoursWorked</td>
+                <td>@String.Format("R{0:N2}", claim.HourlyRate)</td>
+                <td><a href="~/UploadedFiles/@claim.FilePath">@claim.FilePath</a></td>
+                <td>
+                    @if (claim.Status == "Pending")
+                    {
+                        <form asp-action="Approve" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@claim.Id" />
+                            <button type="submit" class="btn btn-success">Approve</button>
+                        </form>
+                        <form asp-action="Reject" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@claim.Id" />
+                            <button type="submit" class="btn btn-danger">Reject</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

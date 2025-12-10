@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#424242</color>
+    <color name="hintText">#757575</color>
+    <color name="primaryAccent">#00796B</color>
+    <color name="brandBlue">#2979FF</color>
+    <color name="backgroundLight">#F8F8F8</color>
+    <color name="boxBackground">#FFFFFF</color>
+    <color name="textTitle">#333333</color>
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">#666666</color><!-- Teal or your brand color -->
+    <color name="brand_blue">#1565C0</color>
+    <color name="chat_bg">#F6F8FA</color>
+
+    <color name="bubble_bot">#FFFFFFFF</color>
+    <color name="bubble_bot_stroke">#E2E8F0</color>
+
+    <color name="chip_bg">#E3F2FD</color>
+    <color name="chip_stroke">#BBDEFB</color>
+
+    <color name="input_stroke">#E0E0E0</color>
+
+    <color name="text_primary">#111111</color>
+    <color name="bluePrimary">#2978FD</color>
+    <color name="blueAccent">#14408A</color>
+
+    <!-- Outgoing messages (blue) -->
+    <color name="colorMyMessage">#2196F3</color>
+    <color name="colorMyMessageStroke">#1976D2</color>
+    <color name="textPrimaryOutgoing">#FFFFFF</color>
+
+    <!-- Incoming messages (gray) -->
+    <color name="colorIncomingMessage">#E0E0E0</color>
+    <color name="colorIncomingMessageStroke">#BDBDBD</color>
+    <color name="textPrimaryIncoming">#212121</color>
+    <color name="bluePrimaryDark">#0851A8</color>
+
+    <color name="badge_success">#28a745</color>
+    <color name="badge_danger">#dc3545</color>
+    <color name="badge_warning">#ffc107</color>
+    <color name="badge_info">#0d6efd</color>
+    <color name="badge_gray">#6c757d</color>
+
+    <color name="cardSurface">#FFFFFF</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="primaryButton">#1976D2</color>
+    <color name="secondaryButton">#388E3C</color>
+    <color name="spinnerOutline">#BDBDBD</color>
+
+
+        <color name="rippleColor">#1F000000</color>    <!-- 12% black for subtle ripple -->
+
+
+    <!-- Brand -->
+    <color name="brandPrimary">#2979FF</color>
+    <color name="brandPrimaryPressed">#1F5FEA</color>         <!-- darker -->
+    <color name="brandPrimaryDisabled">#99AEDD</color>        <!-- 60% tint -->
+
+    <!-- Secondary accent (harmonized) -->
+    <color name="brandSecondary">#00C853</color>              <!-- green accent -->
+    <color name="brandSecondaryPressed">#00B34B</color>
+    <color name="brandSecondaryDisabled">#99DFAF</color>
+
+    <!-- Divider & tint -->
+    <color name="brandDivider">#332979FF</color>              <!-- 20% brand opacity -->
+    <color name="brandTintLight">#0D2979FF</color>            <!-- 5% brand overlay -->
+
+    <color name="backgroundDark">#111317</color>
+    <color name="cardDark">#23262B</color>
+    <color name="textLight">#F4F6F8</color>
+    <color name="iconAccent">#90CAF9</color>
+
+    <color name="navDark">#15181D</color>
+
+
+
+</resources>
+
+

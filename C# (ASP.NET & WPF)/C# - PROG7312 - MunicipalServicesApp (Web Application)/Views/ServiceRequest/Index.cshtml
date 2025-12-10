@@ -1,0 +1,186 @@
+﻿@{
+    ViewData["Title"] = "Service Request Status";
+    var all = (List<MunicipalServicesApp.Models.ServiceRequest>)ViewBag.All ?? new List<MunicipalServicesApp.Models.ServiceRequest>();
+    var byPriority = (List<MunicipalServicesApp.Models.ServiceRequest>)ViewBag.ByPriority ?? new List<MunicipalServicesApp.Models.ServiceRequest>();
+    var byBst = (List<MunicipalServicesApp.Models.ServiceRequest>)ViewBag.ByBST ?? new List<MunicipalServicesApp.Models.ServiceRequest>();
+    var byAvl = (List<MunicipalServicesApp.Models.ServiceRequest>)ViewBag.ByAVL ?? new List<MunicipalServicesApp.Models.ServiceRequest>();
+    var mst = (List<(string, string, double)>)ViewBag.MST ?? new List<(string, string, double)>();
+    var rbtJson = (string)ViewBag.RedBlackJson ?? "null";
+    var rbtCount = (int?)ViewBag.RedBlackCount ?? 0;
+    var rbtHeight = (int?)ViewBag.RedBlackHeight ?? 0;
+    var heapMin = ViewBag.HeapMin as MunicipalServicesApp.Models.ServiceRequest;
+}
+
+<style>
+    :root {
+        --primary-green: #198754;
+        --primary-green-dark: #146c43;
+        --light-bg: #f8f9fa;
+        --border-color: #dee2e6;
+        --text-dark: #212529;
+    }
+
+    h2, h4 {
+        color: var(--primary-green-dark);
+        font-weight: 700;
+    }
+
+
+</style>
+
+<h2>Service Request Status</h2>
+<p class="lead">Track and view submitted service requests organized by data structures (Trees, Heap, Graph).</p>
+
+<div class="mb-3 d-flex flex-wrap align-items-center gap-2">
+    <a asp-action="Create" class="btn btn-success">Submit New Request</a>
+    <a asp-action="Track" class="btn btn-outline-success">Track by ID</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-success">Back to Home</a>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- All Requests Table -->
+        <div class="card shadow-sm mb-3">
+            <div class="card-header">All Requests (Most Recent)</div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table mb-0 align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Location</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Tracking ID</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var r in all)
+                            {
+                                <tr>
+                                    <td>@r.Id</td>
+                                    <td>@r.Title</td>
+                                    <td>@r.Location</td>
+                                    <td>@r.Priority</td>
+                                    <td>
+                                        <span class="badge @(r.Status == "Resolved" ? "bg-success" : r.Status == "In Progress" ? "bg-warning text-dark" : "bg-secondary")">
+                                            @r.Status
+                                        </span>
+                                    </td>
+                                    <td style="max-width:200px;"><small class="text-break">@r.TrackingId</small></td>
+                                    <td><a asp-action="Details" asp-route-id="@r.Id" class="btn btn-sm btn-outline-secondary">View</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Minimum Spanning Tree -->
+        <div class="card mb-3 shadow-sm">
+            <div class="card-header">Minimum Spanning Tree (Related Requests)</div>
+            <div class="card-body">
+                @if (mst.Any())
+                {
+                    <ul class="list-group list-group-flush">
+                        @foreach (var e in mst)
+                        {
+                            <li class="list-group-item">@e.Item1 → @e.Item2 <span class="text-muted">(weight: @e.Item3)</span></li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div class="text-muted">No MST available</div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <!-- Priority Queue (Heap) -->
+        <div class="card mb-3 shadow-sm">
+            <div class="card-header">Priority Queue (Min-Heap)</div>
+            <div class="card-body">
+                @if (byPriority.Any())
+                {
+                    <ol class="ps-3">
+                        @foreach (var r in byPriority)
+                        {
+                            <li>@r.Title — <span class="text-success fw-semibold">Priority: @r.Priority</span> — <small class="text-muted">@r.Status</small></li>
+                        }
+                    </ol>
+                }
+                else
+                {
+                    <div class="text-muted">No requests available</div>
+                }
+            </div>
+        </div>
+
+        <!-- In-Order Traversals -->
+        <div class="card mb-3 shadow-sm">
+            <div class="card-header">In-Order Traversals (Sorted by ID)</div>
+            <div class="card-body small">
+                <p><strong>BST:</strong> @string.Join(", ", byBst.Select(x => x.Id + ":" + x.Title))</p>
+                <p><strong>AVL:</strong> @string.Join(", ", byAvl.Select(x => x.Id + ":" + x.Title))</p>
+            </div>
+        </div>
+
+        <!-- Performance Metrics -->
+        <div class="card shadow-sm">
+            <div class="card-header">Performance Metrics</div>
+            <div class="card-body">
+                <p>Total Requests: <strong>@all.Count</strong></p>
+                <p>Red-Black Nodes: <strong>@rbtCount</strong></p>
+                <p>Red-Black Height: <strong>@rbtHeight</strong></p>
+                <p>Heap Top: <strong>@(heapMin != null ? heapMin.Title + " (P:" + heapMin.Priority + ")" : "N/A")</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Red-Black Tree Visualization -->
+<h4 class="mt-4">Red-Black Tree Visualization</h4>
+<div id="rbt-visual" class="tree-container"></div>
+
+@section Scripts {
+    <script>
+        var treeData = @Html.Raw(rbtJson);
+
+        function createNode(node) {
+            if (!node) return null;
+            var container = document.createElement('div');
+            container.style.textAlign = 'center';
+
+            var box = document.createElement('div');
+            box.className = 'tree-node ' + (node.color === 'red' ? 'red' : 'black');
+            box.innerText = node.value;
+
+            var children = document.createElement('div');
+            children.style.display = 'flex';
+            children.style.justifyContent = 'center';
+            children.style.alignItems = 'flex-start';
+            children.style.flexWrap = 'wrap';
+
+            if (node.left || node.right) {
+                var conn = document.createElement('div');
+                conn.className = 'connector';
+                container.appendChild(conn);
+            }
+
+            if (node.left) children.appendChild(createNode(node.left));
+            if (node.right) children.appendChild(createNode(node.right));
+
+            container.appendChild(box);
+            container.appendChild(children);
+            return container;
+        }
+
+        var root = createNode(treeData);
+        if (root) document.getElementById('rbt-visual').appendChild(root);
+    </script>
+}

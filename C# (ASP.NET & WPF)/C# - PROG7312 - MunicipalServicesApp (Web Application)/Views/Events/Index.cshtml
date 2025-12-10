@@ -1,0 +1,202 @@
+﻿@using MunicipalServicesApp.Models
+@{
+    ViewData["Title"] = "Local Events & Announcements";
+
+    var categories = ViewBag.Categories as IEnumerable<string> ?? Enumerable.Empty<string>();
+    var upcoming = ViewBag.Upcoming as IEnumerable<EventModel> ?? Enumerable.Empty<EventModel>();
+    var results = ViewBag.Results as IEnumerable<EventModel> ?? Enumerable.Empty<EventModel>();
+    var recommendations = ViewBag.Recommendations as IEnumerable<EventModel> ?? Enumerable.Empty<EventModel>();
+    var recently = ViewBag.RecentlyViewed as IEnumerable<EventModel> ?? Enumerable.Empty<EventModel>();
+
+    string selectedCategory = (ViewBag.SelectedCategory ?? "").ToString();
+    string keyword = (ViewBag.Keyword ?? "").ToString();
+    string from = (ViewBag.From ?? "").ToString();
+    string to = (ViewBag.To ?? "").ToString();
+}
+
+<div class="container my-4">
+    <!-- Gradient Header -->
+    <div class="page-header d-flex justify-content-between align-items-center">
+        <div>
+            <h1 class="mb-1">@ViewData["Title"]</h1>
+            <p>Explore upcoming municipal events, consultations, and community activities.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a class="btn btn-outline-light" href="@Url.Action("Index", "Calendar")">
+                <i class="bi bi-house-door"></i> View My Calendar
+            </a>
+            <a class="btn btn-outline-light" href="@Url.Action("Index", "Home")">
+                <i class="bi bi-house-door"></i> Back to Home
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-lg-8">
+            <!-- Search Section -->
+            <div class="card shadow-sm mb-3 search-section">
+                <div class="card-body">
+                    <h4 class="mb-3 fw-semibold">Search and Filter Events</h4>
+                    <form method="get" asp-action="Index" class="row g-3 align-items-end">
+                        <div class="col-md-4">
+                            <label for="keyword" class="form-label fw-semibold">Keyword</label>
+                            <input id="keyword" class="form-control" name="keyword"
+                                   placeholder="Search keyword, tag or title" value="@keyword" />
+                        </div>
+                        <div class="col-md-3">
+                            <label for="category" class="form-label fw-semibold">Category</label>
+                            <select id="category" name="category" class="form-select">
+                                <option value="">All categories</option>
+                                @foreach (var c in categories)
+                                {
+                                    if (string.Equals(c, selectedCategory, StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        <option value="@c" selected="selected">@c</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@c">@c</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                            <label for="from" class="form-label fw-semibold">Date From</label>
+                            <input id="from" type="date" name="from"
+                                   class="form-control"
+                                   style="min-width:110px; font-size:0.70rem; height:38px; padding:6px 10px;"
+                                   value="@from" />
+                        </div>
+
+                        <div class="col-md-2 col-sm-6">
+                            <label for="to" class="form-label fw-semibold">Date To</label>
+                            <input id="to" type="date" name="to"
+                                   class="form-control"
+                                   style="min-width:110px; font-size:0.70rem; height:38px; padding:6px 10px;"
+                                   value="@to" />
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <button class="btn btn-apply me-2" type="submit">Apply Filters</button>
+                            <a class="btn btn-outline-secondary" href="@Url.Action("Index", "Events")">Reset</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="mb-3">
+                <h5 class="mb-2 text-success">Results (@results.Count())</h5>
+                @if (!results.Any())
+                {
+                    <div class="alert alert-info">No events match your search. Showing upcoming events.</div>
+                    <div class="row">
+                        @foreach (var ev in upcoming)
+                        {
+                            <div class="col-md-6 mb-3">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div style="height:180px; overflow:hidden;">
+                                        <img src="@ev.ImageUrl" alt="@ev.Title" style="width:100%;height:100%;object-fit:cover;" />
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <h5 class="mb-0 text-success">@ev.Title</h5>
+                                            <small class="text-muted">@ev.StartDate.ToString("dd-MM-yyyy")</small>
+                                        </div>
+                                        <p class="small text-muted mb-1">@ev.Location • <span class="badge bg-secondary">@ev.Category</span></p>
+                                        <p class="mb-1">@((ev.Description?.Length ?? 0) > 120 ? ev.Description.Substring(0, 120) + "…" : ev.Description)</p>
+                                        <a class="btn btn-sm btn-outline-success" href="@Url.Action("Details", "Events", new { id = ev.Id })">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="list-group">
+                        @foreach (var ev in results)
+                        {
+                            <div class="list-group-item list-group-item-action mb-2 shadow-sm rounded">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <h5 class="mb-1 text-success">@ev.Title</h5>
+                                        <small class="text-muted">@ev.StartDate.ToString("dddd, dd-MM-yyyy HH:mm") • @ev.Location</small>
+                                        <p class="mb-1">@((ev.Description?.Length ?? 0) > 220 ? ev.Description.Substring(0, 220) + "…" : ev.Description)</p>
+                                        <div>
+                                            <span class="badge bg-secondary me-1">@ev.Category</span>
+                                            @foreach (var tag in ev.Tags.Take(4))
+                                            {
+                                                <span class="badge bg-light text-dark me-1">@tag</span>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-end">
+                                        <a class="btn btn-success" href="@Url.Action("Details", "Events", new { id = ev.Id })">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <div class="sticky-top" style="top:85px;">
+                <div class="card mb-3 shadow-sm border-success">
+                    <div class="card-body">
+                        <h6 class="mb-2 text-success">Recommended for you</h6>
+                        @if (recommendations.Any())
+                        {
+                            @foreach (var r in recommendations)
+                            {
+                                <div class="mb-2">
+                                    <a class="fw-semibold text-success" href="@Url.Action("Details", "Events", new { id = r.Id })">@r.Title</a>
+                                    <div class="small text-muted">@r.StartDate.ToString("dd-MM-yyyy") • @r.Category</div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="small text-muted">No recommendations yet. Try searching to build personalized suggestions.</div>
+                        }
+                    </div>
+                </div>
+
+                <div class="card mb-3 shadow-sm border-success">
+                    <div class="card-body">
+                        <h6 class="mb-2 text-success">Upcoming</h6>
+                        @foreach (var ev in upcoming.Take(6))
+                        {
+                            <div class="mb-2">
+                                <a class="text-success" href="@Url.Action("Details", "Events", new { id = ev.Id })">@ev.Title</a>
+                                <div class="small text-muted">@ev.StartDate.ToString("dd-MM-yyyy") • @ev.Location</div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="card shadow-sm border-success">
+                    <div class="card-body">
+                        <h6 class="mb-2 text-success">Recently viewed</h6>
+                        @if (recently.Any())
+                        {
+                            @foreach (var r in recently)
+                            {
+                                <div class="mb-2">
+                                    <a class="text-success" href="@Url.Action("Details", "Events", new { id = r.Id })">@r.Title</a>
+                                    <div class="small text-muted">@r.StartDate.ToString("dd-MM-yyyy") • @r.Category</div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="small text-muted">No recently viewed events yet.</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

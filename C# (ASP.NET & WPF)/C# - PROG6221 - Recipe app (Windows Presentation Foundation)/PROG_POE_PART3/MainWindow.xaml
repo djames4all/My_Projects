@@ -1,0 +1,81 @@
+﻿<Window x:Class="PROG_POE_PART3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recipe App" Height="600" Width="800">
+    <Window.Resources>
+        <!-- ST10393280 Daniel Luke James-->
+        <!-- Define a style for the checkboxes -->
+        <Style x:Key="StepCheckBoxStyle" TargetType="CheckBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="DarkGreen"/>
+            <Setter Property="Background" Value="LightYellow"/>
+            <Style.Triggers>
+                <!-- Change background color when checkbox is checked -->
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="LightGreen"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <!-- Define columns for layout -->
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Recipe List and Filters -->
+        <StackPanel Grid.Column="0" Margin="5">
+            <TextBlock Text="Filter Recipes" FontWeight="Bold" FontSize="14" Foreground="DarkBlue"/>
+            <TextBlock Text="Ingredient:" Foreground="DarkGreen"/>
+            <ComboBox x:Name="IngredientFilterComboBox" Margin="0,0,0,5"/>
+            <TextBlock Text="Food Group:" Foreground="DarkGreen"/>
+            <ComboBox x:Name="FoodGroupFilterComboBox" Margin="0,0,0,5"/>
+            <TextBlock Text="Max Calories:" Foreground="DarkGreen"/>
+            <Slider x:Name="CalorieFilterSlider" Minimum="0" Maximum="1000" TickFrequency="1" IsSnapToTickEnabled="True" Margin="0,0,0,5" ValueChanged="CalorieFilterSlider_ValueChanged"/>
+            <TextBlock x:Name="CalorieFilterLabel" Text="0" Foreground="DarkGreen"/>
+            <Button Content="Apply Filters" Click="ApplyFilters_Click" Margin="0,5" Background="LightGreen"/>
+            <Button Content="Clear Filters" Click="ClearFilters_Click" Margin="0,5" Background="LightCoral"/>
+            <ListBox x:Name="RecipeListBox" SelectionChanged="RecipeListBox_SelectionChanged"/>
+        </StackPanel>
+
+        <!-- Recipe Details and Entry -->
+        <StackPanel Grid.Column="1" Margin="5">
+            <TextBlock Text="Recipe Details" FontWeight="Bold" FontSize="14" Foreground="DarkBlue"/>
+            <TextBlock Text="Recipe Name:" Foreground="DarkGreen"/>
+            <TextBox x:Name="RecipeNameTextBox" Margin="0,0,0,5"/>
+            <TextBlock Text="Ingredients:" Foreground="DarkGreen"/>
+            <StackPanel x:Name="IngredientsPanel">
+                <TextBlock Text="Name" Foreground="DarkGreen"/>
+                <TextBox x:Name="IngredientNameTextBox" Margin="0,0,0,5"/>
+                <TextBlock Text="Quantity" Foreground="DarkGreen"/>
+                <TextBox x:Name="IngredientQuantityTextBox" Margin="0,0,0,5"/>
+                <TextBlock Text="Unit of Measure" Foreground="DarkGreen"/>
+                <TextBox x:Name="IngredientUnitTextBox" Margin="0,0,0,5"/>
+                <TextBlock Text="Number of Calories" Foreground="DarkGreen"/>
+                <TextBox x:Name="IngredientCaloriesTextBox" Margin="0,0,0,5"/>
+                <TextBlock Text="Food Group" Foreground="DarkGreen"/>
+                <ComboBox x:Name="IngredientFoodGroupComboBox" Margin="0,0,0,5"/>
+                <Button Content="Add Ingredient" Click="AddIngredient_Click" Margin="0,5" Background="LightGreen"/>
+            </StackPanel>
+            <TextBlock Text="Enter your steps:" Foreground="DarkGreen"/>
+            <StackPanel x:Name="StepsPanel">
+                <TextBox x:Name="StepDescriptionTextBox" Margin="0,0,0,5"/>
+                <Button Content="Add Step" Click="AddStep_Click" Margin="0,5" Background="LightGreen"/>
+            </StackPanel>
+            <Button Content="Save Recipe" Click="SaveRecipe_Click" Margin="0,5" Background="LightSkyBlue" Foreground="DarkBlue"/>
+            <TextBlock x:Name="RecipeDetailsTextBlock" Margin="5,0"/>
+
+            <!-- New Dropdown List for Selecting Recipes -->
+            <TextBlock Text="Select a Recipe:" Foreground="DarkGreen"/>
+            <ComboBox x:Name="SelectRecipeComboBox" SelectionChanged="SelectRecipeComboBox_SelectionChanged" Margin="0,0,0,5"/>
+            <StackPanel x:Name="RecipeDetailsPanel" Visibility="Collapsed">
+                <TextBlock x:Name="SelectedRecipeDetailsTextBlock" Margin="5,0"/>
+                <StackPanel x:Name="RecipeStepsPanel"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

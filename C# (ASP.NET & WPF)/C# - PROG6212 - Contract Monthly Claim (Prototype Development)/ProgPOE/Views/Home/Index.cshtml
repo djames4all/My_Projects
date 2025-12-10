@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- ST10393280 -->
+<!-- Main container for homepage -->
+<div class="container mt-5">
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center text-white py-5" style="background-image: url('/images/office-background.jpg'); background-size: cover; background-position: center;">
+        <div class="overlay py-5 d-flex flex-column justify-content-center align-items-center">
+            <h1 class="display-3 font-weight-bold">Welcome to the Contract Monthly Claim System</h1>
+            <p class="lead">Effortless and Transparent Monthly Claims for Independent Contractor Lecturers</p>
+            <hr class="my-4">
+            <p class="mb-4">Access your personalized dashboard for claim management:</p>
+            <div class="btn-group">
+                <a class="btn btn-primary btn-lg" href="@Url.Action("LecturerDashboard", "Home")" role="button" aria-label="Lecturer Dashboard">Lecturer Dashboard</a>
+                <a class="btn btn-primary btn-lg" href="@Url.Action("CoordinatorDashboard", "Home")" role="button" aria-label="Coordinator Dashboard">Coordinator Dashboard</a>
+                <a class="btn btn-primary btn-lg" href="@Url.Action("AdminDashboard", "Home")" role="button" aria-label="Admin Dashboard">Admin Dashboard</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features-section text-center mt-5">
+        <h2 class="mb-4">Why Choose Our System?</h2>
+        <div class="row">
+            <!-- Feature 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="/images/fast-claims.jpg" class="card-img-top" alt="Illustration of fast and simple claims process">
+                    <div class="card-body">
+                        <h5 class="card-title">Simple & Fast Claims</h5>
+                        <p class="card-text">Submit claims with just a few clicks and track the approval process in real-time.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="/images/real-time-notifications.jpg" class="card-img-top" alt="Real-time notifications illustration">
+                    <div class="card-body">
+                        <h5 class="card-title">Real-Time Notifications</h5>
+                        <p class="card-text">Stay informed with instant notifications when claims are processed or approved.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="/images/secure-transparent.jpg" class="card-img-top" alt="Secure and transparent processes illustration">
+                    <div class="card-body">
+                        <h5 class="card-title">Secure & Transparent</h5>
+                        <p class="card-text">Your data is securely managed, providing full transparency through the process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="text-center mt-5">
+        <img src="/images/register-now.jpg" class="img-fluid mb-3" alt="Illustration urging users to register now">
+        <p class="lead">Ready to streamline your claims process?</p>
+        <a class="btn btn-success btn-lg mb-3" href="@Url.Action("Register", "Home")" role="button">Get Started</a>
+    </section>
+
+</div>
+
+<!-- Additional CSS -->
+<style>
+    .hero-section {
+        position: relative;
+        color: white;
+        text-align: center;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-section .overlay {
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .btn-group .btn {
+        margin: 0.5rem;
+    }
+
+    .features-section .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+</style>

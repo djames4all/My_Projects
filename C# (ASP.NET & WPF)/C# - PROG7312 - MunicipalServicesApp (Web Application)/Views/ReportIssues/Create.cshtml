@@ -1,0 +1,279 @@
+﻿@model MunicipalServicesApp.Models.ReportIssue
+@{
+    ViewData["Title"] = "Report Issues";
+    Layout = "_Layout";
+}
+
+<div class="report-issues-header text-center mb-4">
+    <h2>Municipal Issue Reporting Portal</h2>
+    <p class="text-muted">Submit a new report or view all submitted issues.</p>
+</div>
+
+<!-- Tabs -->
+<ul class="nav nav-tabs nav-justified custom-tabs mb-4" id="reportTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active fw-bold" id="create-tab" data-bs-toggle="tab" data-bs-target="#create" type="button" role="tab" aria-controls="create" aria-selected="true">
+            Submit a New Report
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link fw-bold" id="view-tab" data-bs-toggle="tab" data-bs-target="#view" type="button" role="tab" aria-controls="view" aria-selected="false">
+            View Submitted Reports
+        </button>
+    </li>
+</ul>
+
+<div class="tab-content" id="reportTabsContent">
+
+    <!-- Tab 1: Create Form -->
+    <div class="tab-pane fade show active" id="create" role="tabpanel" aria-labelledby="create-tab">
+
+        @if (ViewBag.SuccessMessage != null)
+        {
+            <div class="alert alert-success d-flex justify-content-between align-items-center">
+                <div>@ViewBag.SuccessMessage</div>
+                <div>
+                    <button class="btn btn-outline-success btn-sm" id="viewReportsBtn">View Reported Issues</button>
+                </div>
+            </div>
+        }
+
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+                <form asp-action="Create" method="post" enctype="multipart/form-data" id="reportForm">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label asp-for="Location" class="form-label fw-semibold"></label>
+                            <input asp-for="Location" class="form-control" placeholder="e.g. Corner of Main & Church" />
+                            <span asp-validation-for="Location" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label asp-for="Category" class="form-label fw-semibold"></label>
+                            <select asp-for="Category" class="form-select">
+                                <option value="">-- Select category --</option>
+                                <option>Sanitation</option>
+                                <option>Roads</option>
+                                <option>Utilities</option>
+                                <option>Water</option>
+                                <option>Electricity</option>
+                                <option>Other</option>
+                            </select>
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="Description" class="form-label fw-semibold"></label>
+                            <textarea asp-for="Description" class="form-control" rows="5" placeholder="Describe the issue in detail..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">Attach Image or Document (optional)</label>
+                            <input type="file" asp-for="MediaFile" id="MediaFile" accept=".jpg,.jpeg,.png,.gif,.pdf" class="form-control" />
+                            <span asp-validation-for="MediaFile" class="text-danger"></span>
+
+                            <!-- Inline error message -->
+                            <div id="fileError" class="text-danger small mt-1" style="display:none;"></div>
+
+                            <div id="imagePreview" class="mt-3" style="display:none;">
+                                <p class="mb-2 small text-muted">Preview:</p>
+                                <img id="previewImg" src="#" alt="Image preview" style="max-width:320px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.08);" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Engagement Progress Bar -->
+                    <div class="engagement-container mt-4">
+                        <label class="form-label fw-semibold">Reporting Progress</label>
+                        <div class="progress mb-2" style="height:18px;">
+                            <div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%;">0%</div>
+                        </div>
+                        <div class="small text-muted">Your report helps the municipality improve services — thank you for participating!</div>
+                    </div>
+
+                    <div class="mt-4 d-flex justify-content-between">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Back to Main Menu</a>
+                        <div>
+                            <button type="button" id="submitBtn" class="btn btn-success btn-lg">Submit Report</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark text-white">
+                        <h5 class="modal-title" id="confirmModalLabel">Confirm Submission</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        The attached file is large — submitting may take longer. Do you want to continue?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" id="confirmSubmit" class="btn btn-success">Yes, Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 2: View Submitted Reports -->
+    <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="view-tab">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h4 class="mb-4">Submitted Reports</h4>
+
+                <!-- Make table responsive -->
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead class="table-light">
+                            <tr>
+                                <th>#</th>
+                                <th>Date</th>
+                                <th>Location</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Attachment</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.Reports != null)
+                            {
+                                int count = 1;
+                                foreach (var report in ViewBag.Reports)
+                                {
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>@report.SubmittedAt.ToString("yyyy-MM-dd")</td>
+                                        <td>@report.Location</td>
+                                        <td>@report.Category</td>
+                                        <td>@report.Description</td>
+                                        <td>
+                                            @if (!string.IsNullOrEmpty(report.MediaFilePath))
+                                            {
+                                                <button type="button" class="btn btn-sm btn-success view-image-btn"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        data-img="@Url.Content(report.MediaFilePath)">
+                                                    View
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted">None</span>
+                                            }
+                                </td>
+                                <td>
+                                    <span class="badge
+                                                    @(report.Status == "Pending" ? "bg-warning text-dark" :
+                                                      report.Status == "In Progress" ? "bg-primary" :
+                                                      report.Status == "Resolved" ? "bg-success" : "bg-secondary")">
+                                        @report.Status
+                                    </span>
+                                </td>
+                            </tr>
+                                                       count++;
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="7" class="text-center text-muted">No reports submitted yet.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="mt-4 d-flex justify-content-center">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-lg">Back to Main Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title" id="imageModalLabel">Attached Image</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalImage" src="" class="img-fluid rounded shadow" alt="Report Attachment" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script>
+        // Image preview before upload
+        $('#MediaFile').on('change', function () {
+            var file = this.files && this.files[0];
+            if (!file) {
+                $('#imagePreview').hide();
+                return;
+            }
+            var ext = file.name.split('.').pop().toLowerCase();
+            if (['jpg','jpeg','png','gif'].indexOf(ext) !== -1) {
+                var reader = new FileReader();
+                reader.onload = function (evt) {
+                    $('#previewImg').attr('src', evt.target.result);
+                    $('#imagePreview').show();
+                };
+                reader.readAsDataURL(file);
+            } else {
+                $('#imagePreview').hide();
+            }
+        });
+
+        // Progress bar update
+        function updateProgress() {
+            let progress = 0;
+            if ($('#Location').val().trim() !== '') progress += 25;
+            if ($('#Category').val().trim() !== '') progress += 25;
+            if ($('#Description').val().trim() !== '') progress += 25;
+            if ($('#MediaFile').val().trim() !== '') progress += 25;
+
+            $('#progressBar').css('width', progress + '%').text(progress + '%');
+        }
+        $('#Location, #Category, #Description, #MediaFile').on('input change', updateProgress);
+
+        // Submit with confirmation modal for large files (>2MB)
+        $('#submitBtn').on('click', function () {
+            var file = $('#MediaFile')[0].files[0];
+            if (file && file.size > 2 * 1024 * 1024) {
+                var modal = new bootstrap.Modal(document.getElementById('confirmModal'));
+                modal.show();
+            } else {
+                $('#reportForm').submit();
+            }
+        });
+        $('#confirmSubmit').on('click', function () {
+            $('#reportForm').submit();
+        });
+
+        // Switch to the "View Submitted Reports" tab
+        $('#viewReportsBtn').on('click', function () {
+            var viewTab = new bootstrap.Tab(document.querySelector('#view-tab'));
+            viewTab.show();
+        });
+
+        // Show image in modal
+        $(document).on('click', '.view-image-btn', function () {
+            var imgSrc = $(this).data('img');
+            $('#modalImage').attr('src', imgSrc);
+        });
+    </script>
+}

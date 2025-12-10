@@ -1,0 +1,181 @@
+﻿@{
+    ViewData["Title"] = "Admin Settings - EliteRentals";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var userId = Context.Session.GetString("UserId");
+    var jwt = Context.Session.GetString("JWT");
+}
+
+@if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(jwt))
+{
+    <script>
+        window.location.href = "/Account/Login";
+    </script>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        @await Html.PartialAsync("_AdminSidebar")
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+            <h2 class="h3 pb-2 mb-3 border-bottom">Settings</h2>
+
+            <!-- Profile Settings -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Profile Settings</h5>
+                    <form id="profileForm">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Change Password -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Change Password</h5>
+                    <form id="passwordForm">
+                        <div class="mb-3">
+                            <label class="form-label">Current Password</label>
+                            <input type="password" class="form-control" id="currentPassword">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">New Password</label>
+                            <input type="password" class="form-control" id="newPassword">
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Update Password</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Profile Preview -->
+            <div class="card shadow-sm mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Profile Preview</h5>
+                    <p><strong>Name:</strong> <span id="previewName"></span></p>
+                    <p><strong>Email:</strong> <span id="previewEmail"></span></p>
+                    <p><strong>Password:</strong> <span id="previewPassword">••••••••</span></p>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    const userId = "@userId";
+    const jwt = "@jwt";
+    const apiBase = "https://eliterentalsapi-czckh7fadmgbgtgf.southafricanorth-01.azurewebsites.net";
+    const headers = {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${jwt}`
+    };
+
+    let currentUser = {};
+
+    if (userId && jwt) {
+        fetch(`${apiBase}/api/Users/${userId}`, { headers })
+            .then(async res => {
+                if (!res.ok) {
+                    const errorText = await res.text();
+                    throw new Error(`Fetch failed: ${errorText}`);
+                }
+                return res.json();
+            })
+            .then(data => {
+                currentUser = data;
+                const fullName = `${data.firstName} ${data.lastName}`;
+                document.getElementById('fullName').value = fullName;
+                document.getElementById('email').value = data.email;
+                updatePreview(fullName, data.email);
+            })
+            .catch(err => {
+                console.error("Error loading user:", err);
+                alert("Could not load user profile. Please check your login or session.");
+            });
+    }
+
+    document.getElementById('profileForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const fullName = document.getElementById('fullName').value.trim();
+        const nameParts = fullName.split(" ");
+        const payload = {
+            userId: currentUser.userId,
+            firstName: nameParts[0],
+            lastName: nameParts.slice(1).join(" "),
+            email: document.getElementById('email').value,
+            role: currentUser.role,
+            tenantApproval: currentUser.tenantApproval,
+            isActive: currentUser.isActive,
+            managerId: currentUser.managerId,
+            passwordHash: currentUser.passwordHash || ""
+        };
+
+        fetch(`${apiBase}/api/Users/${userId}`, {
+            method: "PUT",
+            headers,
+            body: JSON.stringify(payload)
+        })
+        .then(async res => {
+            if (!res.ok) {
+                const errorText = await res.text();
+                throw new Error(errorText);
+            }
+            return res.json();
+        })
+        .then(data => {
+            const updatedName = `${data.firstName} ${data.lastName}`;
+            updatePreview(updatedName, data.email);
+            alert("Profile updated!");
+        })
+        .catch(err => {
+            console.error("Profile update error:", err);
+            alert("Failed to update profile. " + err.message);
+        });
+    });
+
+    document.getElementById('passwordForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const currentPassword = document.getElementById('currentPassword').value;
+        const newPassword = document.getElementById('newPassword').value;
+
+        if (!currentPassword || !newPassword) {
+            alert("Please fill in both password fields.");
+            return;
+        }
+
+        fetch(`${apiBase}/api/Users/${userId}/password`, {
+            method: "PATCH",
+            headers,
+            body: JSON.stringify({
+                currentPassword,
+                newPassword
+            })
+        })
+        .then(async res => {
+            if (!res.ok) {
+                const errorText = await res.text();
+                throw new Error(errorText);
+            }
+            alert("Password updated successfully!");
+            document.getElementById('currentPassword').value = "";
+            document.getElementById('newPassword').value = "";
+        })
+        .catch(err => {
+            console.error("Password update error:", err);
+            alert("Failed to update password. " + err.message);
+        });
+    });
+
+    function updatePreview(name, email) {
+        document.getElementById('previewName').textContent = name;
+        document.getElementById('previewEmail').textContent = email;
+    }
+</script>

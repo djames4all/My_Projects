@@ -1,0 +1,121 @@
+﻿@model IEnumerable<CMCS.Controllers.Claim>
+@{
+    ViewData["Title"] = "Lecturer Dashboard";
+}
+<!-- ST10393280 -->
+<div class="container">
+    <h1 class="mt-4">Lecturer Dashboard</h1>
+
+    <!-- Claim Submission -->
+    <div class="card mt-4">
+        <div class="card-header">Submit New Claim</div>
+        <div class="card-body">
+            <form method="post" action="/Home/SubmitClaim">
+                <div class="form-group">
+                    <label for="hoursWorked">Hours Worked</label>
+                    <input type="number" class="form-control" id="hoursWorked" name="hoursWorked" required />
+                </div>
+                <div class="form-group">
+                    <label for="hourlyRate">Hourly Rate</label>
+                    <input type="number" class="form-control" id="hourlyRate" name="hourlyRate" required />
+                </div>
+                <div class="form-group">
+                    <label for="additionalNotes">Additional Notes</label>
+                    <textarea class="form-control" id="additionalNotes" name="additionalNotes"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fileUpload">Upload File</label>
+                    <input type="file" class="form-control" id="fileUpload" name="fileUpload" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Claim</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Claim History -->
+    <div class="card mt-4">
+        <div class="card-header">Claim History</div>
+        <div class="card-body">
+            <h5>Total Claims: @Model.Count()</h5>
+            <h5>Total Hours Worked: @Model.Sum(c => c.HoursWorked)</h5>
+            <h5>Total Payments: @Model.Sum(c => c.TotalPayment).ToString("C")</h5> <!-- Format as currency -->
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Hours Worked</th>
+                        <th>Hourly Rate</th>
+                        <th>Total Payment</th>
+                        <th>Status</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var claim in Model)
+                    {
+                        <tr>
+                            <td>@claim.Id</td>
+                            <td>@claim.HoursWorked</td>
+                            <td>@claim.HourlyRate.ToString("C")</td>
+                            <td>@claim.TotalPayment.ToString("C")</td>
+                            <td>@claim.Status</td>
+                            <td>
+                                <button class="btn btn-info" data-toggle="modal" data-target="#claimModal" data-id="@claim.Id"
+                                        data-hours="@claim.HoursWorked" data-hourlyrate="@claim.HourlyRate"
+                                        data-totalpayment="@claim.TotalPayment" data-notes="@claim.AdditionalNotes"
+                                        data-status="@claim.Status">
+                                    View
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for Claim Details -->
+    <div class="modal fade" id="claimModal" tabindex="-1" role="dialog" aria-labelledby="claimModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="claimModalLabel">Claim Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Hours Worked:</strong> <span id="claimHoursWorked"></span></p>
+                    <p><strong>Hourly Rate:</strong> <span id="claimHourlyRate"></span></p>
+                    <p><strong>Total Payment:</strong> <span id="claimTotalPayment"></span></p>
+                    <p><strong>Additional Notes:</strong> <span id="claimAdditionalNotes"></span></p>
+                    <p><strong>Status:</strong> <span id="claimStatus"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Attach event to open the modal and populate it with the correct claim data
+    $('#claimModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);  // Button that triggered the modal
+        var claimId = button.data('id');  // Extract info from data-* attributes
+        var hoursWorked = button.data('hours');
+        var hourlyRate = button.data('hourlyrate');
+        var totalPayment = button.data('totalpayment');
+        var additionalNotes = button.data('notes');
+        var status = button.data('status');
+
+        // Populate the modal with claim data
+        $('#claimHoursWorked').text(hoursWorked);
+        $('#claimHourlyRate').text(hourlyRate.toFixed(2)); // Format number to 2 decimal places
+        $('#claimTotalPayment').text(totalPayment.toFixed(2)); // Format number to 2 decimal places
+        $('#claimAdditionalNotes').text(additionalNotes);
+        $('#claimStatus').text(status);
+    });
+</script>

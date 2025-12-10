@@ -1,0 +1,307 @@
+﻿@model AdminDashboardViewModel
+@{
+    ViewData["Title"] = "Admin Dashboard - EliteRentals";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* IMPROVED KPI SHRINK-TO-FIT STYLING */
+    .kpi-value {
+        white-space: nowrap;
+        font-weight: 600; /* Slightly lighter for better fitting */
+        font-size: 2.4rem;
+        line-height: 1.1; /* Prevent vertical clipping */
+        display: inline-block; /* Needed for scaling */
+        transform-origin: left center;
+        max-width: 100%;
+        overflow: visible !important; /* Ensure clean scaling */
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        @await Html.PartialAsync("_AdminSidebar")
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+            <div class="d-flex justify-content-between align-items-center pb-2 mb-3 border-bottom">
+                <h2 class="h3">Admin Dashboard</h2>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="row mb-4">
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted">Occupancy Rate</h6>
+                            <p class="text-success kpi-value">@Model.OccupancyRate%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted">Overdue Payments</h6>
+                            <p class="text-danger kpi-value">@($"R{Model.OverduePayments:N2}")</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted">Active Maintenance</h6>
+                            <p class="text-warning kpi-value">@Model.ActiveMaintenance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted">Pending Requests</h6>
+                            <p class="text-primary kpi-value">@Model.PendingRequests</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end mb-3">
+                <a class="btn btn-outline-secondary me-2" href="@Url.Action("ExportActivities", "Admin")">Export Activities</a>
+                <a class="btn btn-outline-secondary" href="@Url.Action("ExportMaintenance", "Admin")">Export Maintenance</a>
+            </div>
+
+            <!-- Recent Activities Table -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Recent Activities</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Tenant</th>
+                                    <th>Property</th>
+                                    <th>Action</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var act in Model.RecentActivities)
+                                {
+                                    <tr>
+                                        <td>@(string.IsNullOrEmpty(act.Tenant) ? "Unknown Tenant" : act.Tenant)</td>
+                                        <td>@(string.IsNullOrEmpty(act.Property) ? "Unknown Property" : act.Property)</td>
+                                        <td>@act.Action</td>
+                                        <td>@act.Date.ToString("dd/MM/yyyy")</td>
+                                        <td>
+                                            @{
+                                                string badgeClass;
+
+                                                if (act.Action == "Payment")
+                                                {
+                                                    badgeClass = act.Status?.ToLower() switch
+                                                    {
+                                                        "paid" => "bg-success",
+                                                        "revoked" => "bg-danger",
+                                                        "pending" => "bg-warning text-dark",
+                                                        _ => "bg-secondary"
+                                                    };
+                                                }
+                                                else if (act.Action == "Maintenance")
+                                                {
+                                                    badgeClass = act.Status?.ToLower() switch
+                                                    {
+                                                        "pending" => "bg-warning text-dark",
+                                                        "in progress" => "bg-info text-dark",
+                                                        "resolved" => "bg-success",
+                                                        _ => "bg-secondary"
+                                                    };
+                                                }
+                                                else
+                                                {
+                                                    badgeClass = "bg-secondary";
+                                                }
+                                            }
+                                            <span class="badge @badgeClass">@((act.Status ?? "Unknown"))</span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="row mb-4">
+                <div class="col-lg-6 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Rent Trends</h5>
+                            <canvas id="rentTrendsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Lease Expiration Timeline</h5>
+                            <canvas id="leaseExpirationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lease Health Summary -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Lease Health Summary</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Expiring in 30 days: <strong>@Model.ExpiringLeases30Days</strong></li>
+                        <li class="list-group-item">Expiring in 60 days: <strong>@Model.ExpiringLeases60Days</strong></li>
+                        <li class="list-group-item">Expiring in 90 days: <strong>@Model.ExpiringLeases90Days</strong></li>
+                        <li class="list-group-item">Leases missing documents: <strong>@Model.LeasesMissingDocuments</strong></li>
+                        <li class="list-group-item">Leases with overdue payments: <strong>@Model.LeasesWithOverduePayments</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Maintenance Aging Tracker -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Maintenance Aging Tracker</h5>
+                    <canvas id="maintenanceAgingChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Alerts -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Alerts & Notifications</h5>
+                    @if (Model.Alerts.Any())
+                    {
+                        <ul class="list-group list-group-flush">
+                            @foreach (var alert in Model.Alerts)
+                            {
+                                var badgeClass = alert.Severity switch
+                                {
+                                    "danger" => "bg-danger",
+                                    "warning" => "bg-warning text-dark",
+                                    _ => "bg-secondary"
+                                };
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><strong>@alert.Type:</strong> @alert.Message</span>
+                                    <span class="badge @badgeClass">@alert.Severity.ToUpper()</span>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p class="text-muted">No alerts at this time.</p>
+                    }
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        /* FULLY FIXED SHRINK-TO-FIT KPI SCALING */
+        function fitKPIText() {
+            document.querySelectorAll('.kpi-value').forEach(el => {
+                el.style.transform = "scale(1)"; // reset scaling
+
+                const parent = el.parentElement;
+                const maxWidth = parent.clientWidth - 20;   // keep small padding
+                const textWidth = el.scrollWidth;
+
+                if (textWidth > maxWidth) {
+                    const scale = maxWidth / textWidth;
+                    el.style.transform = `scale(${scale})`;
+                }
+            });
+        }
+
+        window.addEventListener("load", fitKPIText);
+        window.addEventListener("resize", () => setTimeout(fitKPIText, 50));
+    </script>
+
+    <script>
+        // Rent Trends Chart
+        const rentData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RentTrends.Select(r => r.Amount)));
+        const rentLabels = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RentTrends.Select(r => r.Month)));
+
+        new Chart(document.getElementById('rentTrendsChart').getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: rentLabels,
+                datasets: [{
+                    label: 'Rent Collected',
+                    data: rentData,
+                    borderColor: '#0d6efd',
+                    backgroundColor: 'rgba(13,110,253,0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: true, position: 'top' } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // Lease Expiration Chart
+        const leaseData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.LeaseExpirations.Select(l => l.Count)));
+        const leaseLabels = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.LeaseExpirations.Select(l => l.Month)));
+
+        new Chart(document.getElementById('leaseExpirationChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: leaseLabels,
+                datasets: [{
+                    label: 'Expiring Leases',
+                    data: leaseData,
+                    backgroundColor: 'rgba(255, 193, 7, 0.7)',
+                    borderColor: 'rgba(255, 193, 7, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: true, position: 'top' } },
+                scales: { y: { beginAtZero: true, precision: 0 } }
+            }
+        });
+
+        // Maintenance Aging Chart
+        const agingLabels = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.MaintenanceAgingBuckets.Select(b => $"Week {b.WeeksOpen}")));
+        const agingData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.MaintenanceAgingBuckets.Select(b => b.Count)));
+
+        new Chart(document.getElementById('maintenanceAgingChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: agingLabels,
+                datasets: [{
+                    label: 'Open Requests',
+                    data: agingData,
+                    backgroundColor: 'rgba(220, 53, 69, 0.7)',
+                    borderColor: 'rgba(220, 53, 69, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: true, position: 'top' } },
+                scales: { y: { beginAtZero: true, precision: 0 } }
+            }
+        });
+
+    </script>
+}

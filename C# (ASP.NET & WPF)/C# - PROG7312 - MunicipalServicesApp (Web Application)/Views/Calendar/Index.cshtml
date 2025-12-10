@@ -1,0 +1,89 @@
+﻿@model IEnumerable<MunicipalServicesApp.Models.EventModel>
+
+@{
+    ViewData["Title"] = "My Calendar";
+
+    // Sort the events by date before displaying
+    var sortedEvents = Model
+        .OrderBy(e => e.StartDate)
+        .ThenBy(e => e.Title)
+        .ToList();
+}
+
+<div class="container my-4">
+    <!-- Gradient Header -->
+    <div class="page-header d-flex justify-content-between align-items-center">
+        <div>
+            <h1 class="mb-1">@ViewData["Title"]</h1>
+            <p>View and manage your saved community events.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a class="btn btn-outline-light" href="@Url.Action("Index", "Events")">
+                <i class="bi bi-arrow-left-circle"></i> Back to Events
+            </a>
+            <a class="btn btn-outline-light" href="@Url.Action("Index", "Home")">
+                <i class="bi bi-house-door"></i> Back to Home
+            </a>
+        </div>
+    </div>
+
+    <!-- Message Section -->
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success mt-3 shadow-sm border-0"
+             style="background: linear-gradient(90deg, #198754 0%, #3cb371 50%, #d4af37 100%);
+                        color: #fff; font-weight: 500;">
+            @TempData["Message"]
+        </div>
+    }
+
+    <!-- Empty Calendar -->
+    @if (!sortedEvents.Any())
+    {
+        <div class="alert mt-3 shadow-sm border-0"
+             style="background: linear-gradient(90deg, #d4af37 0%, #198754 100%);
+                        color: #fff; font-weight: 500;">
+            Your calendar is empty. Add events from the details page.
+        </div>
+    }
+    else
+    {
+        <!-- Events List -->
+        <div class="list-group mt-3">
+            @foreach (var ev in sortedEvents)
+            {
+                <div class="list-group-item list-group-item-action mb-2 shadow-sm rounded">
+                    <div class="row align-items-center">
+                        <div class="col-md-9">
+                            <h5 class="mb-1 text-success">@ev.Title</h5>
+                            <small class="text-muted">
+                                @ev.StartDate.ToString("dddd, dd MMM yyyy HH:mm")
+                                @if (ev.EndDate.HasValue)
+                                {
+                                    <text> - @ev.EndDate.Value.ToString("HH:mm")</text>
+                                }
+                            • @ev.Location
+                        </small>
+                        <p class="mb-1">
+                            @((ev.Description?.Length ?? 0) > 120
+                                                    ? ev.Description.Substring(0, 120) + "…"
+                                                    : ev.Description)
+                    </p>
+                    <div>
+                        <span class="badge bg-secondary">@ev.Category</span>
+                    </div>
+                </div>
+                <div class="col-md-3 text-end">
+                    <form asp-action="RemoveFromCalendar" asp-controller="Calendar" method="post">
+                        <input type="hidden" name="id" value="@ev.Id" />
+                        <button class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-trash"></i> Remove
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+                }
+        </div>
+    }
+</div>

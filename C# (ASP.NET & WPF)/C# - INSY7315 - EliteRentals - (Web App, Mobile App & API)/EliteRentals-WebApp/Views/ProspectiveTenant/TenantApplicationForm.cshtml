@@ -1,0 +1,96 @@
+﻿@model EliteRentals.Models.ViewModels.RentalApplicationPageViewModel
+@{
+    ViewData["Title"] = "Rental Application - EliteRentals";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var p = Model.Property;
+}
+
+<section class="bg-primary text-white text-center py-5 mb-4">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Rental Application</h1>
+        <p class="lead">
+            Apply for @(!string.IsNullOrWhiteSpace(p.Title) ? p.Title : "this property")
+            @if(!string.IsNullOrWhiteSpace(p.Address)){<text> at @p.Address</text>}
+        </p>
+    </div>
+</section>
+
+<nav aria-label="breadcrumb" class="bg-light py-2 shadow-sm mb-4 rounded-3">
+    <div class="container">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="ProspectiveTenant" asp-action="TenantPropertyListings">Property Listings</a></li>
+            <li class="breadcrumb-item">
+                <a asp-controller="ProspectiveTenant" asp-action="TenantListingDetails" asp-route-id="@p.PropertyId">Property Details</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Application Form</li>
+        </ol>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <div class="row g-4">
+        <div class="col-lg-5">
+            <div class="card shadow-sm rounded-4">
+                <div class="card-body">
+                    <h5 class="fw-bold mb-2">@(!string.IsNullOrWhiteSpace(p.Title) ? p.Title : "Untitled Listing")</h5>
+                    <div class="text-muted mb-2">@p.Address, @p.City, @p.Province</div>
+                    <div class="mb-2"><span class="badge bg-@(p.Status?.ToLower()=="available"?"success":(p.Status?.ToLower()=="rented"?"secondary":"warning"))">@p.Status</span></div>
+                    <div class="h4">R @p.RentAmount</div>
+                    <div class="small text-muted">
+                        <span class="me-3">@p.NumOfBedrooms bed</span>
+                        <span class="me-3">@p.NumOfBathrooms bath</span>
+                        <span>@(p.PetFriendly ? "Pet friendly" : "No pets")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7">
+            <form asp-action="TenantApplicationForm" method="post" enctype="multipart/form-data" class="card shadow-sm rounded-4 p-4">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Form.PropertyId" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="Form.ApplicantName" class="form-label"></label>
+                        <input asp-for="Form.ApplicantName" class="form-control" placeholder="John Doe" />
+                        <span asp-validation-for="Form.ApplicantName" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Form.Email" class="form-label"></label>
+                        <input asp-for="Form.Email" class="form-control" placeholder="example@email.com" />
+                        <span asp-validation-for="Form.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Form.Phone" class="form-label"></label>
+                        <input asp-for="Form.Phone" class="form-control" placeholder="+27 82 123 4567" />
+                        <span asp-validation-for="Form.Phone" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Form.Notes" class="form-label"></label>
+                        <input asp-for="Form.Notes" class="form-control" placeholder="Optional note" />
+                        <span asp-validation-for="Form.Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Supporting Document (PDF/JPG/PNG)</label>
+                        <input name="document" type="file" class="form-control" accept=".pdf,.jpg,.jpeg,.png" />
+                    </div>
+
+                    <div class="col-12 d-flex flex-wrap gap-2 mt-3">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
+                        <a asp-controller="ProspectiveTenant" asp-action="TenantListingDetails" asp-route-id="@p.PropertyId" class="btn btn-outline-secondary btn-lg">Back to Property</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

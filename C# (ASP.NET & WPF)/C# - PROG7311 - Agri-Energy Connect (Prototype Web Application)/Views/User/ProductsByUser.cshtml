@@ -1,0 +1,31 @@
+﻿User/ProductsByUser.cshtml
+@model IEnumerable<Prog7311_POE_Part2.Models.Product>
+
+<h3>Products posted by @ViewBag.UserEmail</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ProductName</th>
+            <th>ProductDescription</th>
+            <th>ProductCategory</th>
+            <th>ProductionDate</th>
+            <th>ProductQuantity</th>
+            <th>ProductUnitPrice</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var asset in Model)
+        {
+            <tr>
+                <td>@asset.ProductName</td>
+                <td>@asset.ProductDescription</td>
+                <td>@asset.ProductCategory</td>
+                <td>@asset.ProductionDate.ToShortDateString()</td>
+                <td>@asset.ProductQuantity</td>
+                <td>@asset.ProductUnitPrice</td>
+            </tr>
+        }
+    </tbody>
+</table>

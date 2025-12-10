@@ -1,0 +1,52 @@
+name: Build and deploy ASP.Net Core app to Azure Web App - EliteRentalsAPI
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+
+    steps:
+      # 1. Checkout the repo
+      - uses: actions/checkout@v4
+
+      # 2. Setup .NET Core SDK
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      # 3. Find the solution file (.sln)
+      - name: Find solution file
+        id: find_sln
+        run: |
+          $sln = Get-ChildItem -Recurse -Filter *.sln | Select-Object -First 1
+          if (-not $sln) { Write-Error "No solution file found!"; exit 1 }
+          echo "SOLUTION_FILE=$($sln.FullName)" >> $env:GITHUB_ENV
+          Write-Host "Using solution file: $($sln.FullName)"
+
+      # 4. Build the project
+      - name: Build project
+        run: dotnet build "$env:SOLUTION_FILE" --configuration Release
+
+      # 5. Publish the project to a local folder
+      - name: Publish project
+        run: |
+          $publishDir = "$env:GITHUB_WORKSPACE\publish"
+          dotnet publish "$env:SOLUTION_FILE" -c Release -o $publishDir
+          echo "PUBLISH_DIR=$publishDir" >> $env:GITHUB_ENV
+
+      # 6. Deploy to Azure Web App
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'EliteRentalsAPI'
+          slot-name: 'Production'
+          package: ${{ env.PUBLISH_DIR }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CEDD55153C2C45AC82D124DD9CB2C590 }}

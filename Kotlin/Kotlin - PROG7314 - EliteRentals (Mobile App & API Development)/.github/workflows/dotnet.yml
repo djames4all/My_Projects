@@ -1,0 +1,49 @@
+name: .NET Build and Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Elite-Rentals-Rest-API/EliteRentalsAPI
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET 8.0
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build project
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Run tests (if any)
+      run: |
+        if ls ../**/*Tests.csproj 1> /dev/null 2>&1; then
+          echo "Running tests..."
+          dotnet test ../**/*Tests.csproj --no-build --verbosity normal
+        else
+          echo "No test projects found. Skipping tests."
+        fi
+
+    - name: Publish build artifact
+      if: success()
+      run: dotnet publish -c Release -o ${{ github.workspace }}/publish
+
+    - name: Upload artifact
+      if: success()
+      uses: actions/upload-artifact@v4
+      with:
+        name: EliteRentalsAPI
+        path: ${{ github.workspace }}/publish

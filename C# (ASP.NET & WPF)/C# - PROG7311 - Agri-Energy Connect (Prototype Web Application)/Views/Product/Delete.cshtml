@@ -1,0 +1,54 @@
+﻿@model Prog7311_POE_Part2.Models.Product
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="display-4 text-center my-4">Delete Product</h1>
+
+<div class="container">
+    <h3 class="text-center mb-4">Are you sure you want to delete this product?</h3>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h4 class="card-title">Product Details</h4>
+            <hr />
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th scope="row">@Html.DisplayNameFor(model => model.ProductName)</th>
+                        <td>@Html.DisplayFor(model => model.ProductName)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Html.DisplayNameFor(model => model.ProductDescription)</th>
+                        <td>@Html.DisplayFor(model => model.ProductDescription)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Html.DisplayNameFor(model => model.ProductCategory)</th>
+                        <td>@Html.DisplayFor(model => model.ProductCategory)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Html.DisplayNameFor(model => model.ProductionDate)</th>
+                        <td>@Html.DisplayFor(model => model.ProductionDate)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Html.DisplayNameFor(model => model.ProductQuantity)</th>
+                        <td>@Html.DisplayFor(model => model.ProductQuantity)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Html.DisplayNameFor(model => model.ProductUnitPrice)</th>
+                        <td>@Html.DisplayFor(model => model.ProductUnitPrice)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="text-center">
+                <form asp-action="Delete" method="post" class="d-inline">
+                    <input type="hidden" asp-for="ProductId" />
+                    <button type="submit" class="btn btn-danger btn-lg">Delete</button>
+                </form>
+                <a asp-action="Index" class="btn btn-secondary btn-lg ml-3">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+ESTATE AGENT REPORT 
+
+*******************************
+
+Agent Location: Cape Town
+Agent Name: Daniel James
+Property Price: R2000,00
+Commission Percentage: 10,00%
+Commission Earned: R200,00
+
+*******************************

@@ -1,0 +1,115 @@
+﻿@model MunicipalServicesApp.Models.ServiceRequest
+@{
+    ViewData["Title"] = "Request Details";
+    var bfs = ViewBag.BFS as List<string> ?? new List<string>();
+    var dfs = ViewBag.DFS as List<string> ?? new List<string>();
+    var mst = ViewBag.MST as List<(string, string, double)> ?? new List<(string, string, double)>();
+}
+
+<h2 class="text-success">Request Details</h2>
+
+<div class="card mb-3 shadow-sm border-success">
+    <div class="card-body">
+        <h4 class="text-success">@Model.Title</h4>
+        <p class="text-muted">@Model.Location — @Model.SubmittedAt.ToString("g")</p>
+        <p>@Model.Description</p>
+        <p>
+            Status:
+            <strong class="@(Model.Status == "Resolved" ? "text-success"
+                                            : Model.Status == "In Progress" ? "text-warning"
+                                            : "text-secondary")">
+                @Model.Status
+            </strong>
+            &nbsp;|&nbsp; Priority: <strong class="text-success">@Model.Priority</strong>
+        </p>
+        <p>Tracking ID: <code class="text-break text-success">@Model.TrackingId</code></p>
+
+        <div class="mt-3">
+            <label class="fw-semibold text-success">Update Status:</label>
+            <div class="btn-group ms-2" role="group">
+                <button class="btn btn-secondary btn-sm" onclick="updateStatus('@Model.TrackingId','Pending')">Pending</button>
+                <button class="btn btn-warning text-dark btn-sm" onclick="updateStatus('@Model.TrackingId','In Progress')">In Progress</button>
+                <button class="btn btn-success btn-sm" onclick="updateStatus('@Model.TrackingId','Resolved')">Resolved</button>
+            </div>
+        </div>
+        <div class="text-end mt-2">
+            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow-sm mb-3 border-success">
+            <div class="card-header bg-success text-white">Breadth-First Search (BFS)</div>
+            <div class="card-body">
+                @if (bfs.Any())
+                {
+                    <ol>
+                        @foreach (var t in bfs)
+                        {
+                            <li><small class="text-break text-success">@t</small></li>
+                        }
+                    </ol>
+                }
+                else
+                {
+                    <div class="text-success">No connected requests (BFS)</div>
+                }
+            </div>
+        </div>
+
+        <div class="card shadow-sm border-success">
+            <div class="card-header bg-success text-white">Depth-First Search (DFS)</div>
+            <div class="card-body">
+                @if (dfs.Any())
+                {
+                    <ol>
+                        @foreach (var t in dfs)
+                        {
+                            <li><small class="text-break text-success">@t</small></li>
+                        }
+                    </ol>
+                }
+                else
+                {
+                    <div class="text-success">No connected requests (DFS)</div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm border-success">
+            <div class="card-header bg-success text-white">Minimum Spanning Tree (Prim)</div>
+            <div class="card-body">
+                @if (mst.Any())
+                {
+                    <ul>
+                        @foreach (var e in mst)
+                        {
+                            <li class="text-success">@e.Item1 — @e.Item2 (Weight: @e.Item3)</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div class="text-success">No MST edges for this component</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function updateStatus(trackingId, status) {
+            $.post('@Url.Action("UpdateStatusAjax", "ServiceRequest")', { trackingId: trackingId, status: status })
+                .done(function (res) {
+                    if (res.success) location.reload();
+                    else alert('Failed: ' + res.message);
+                });
+        }
+    </script>
+}

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:usesCleartextTraffic="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.EliteRentals">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Launch LoginActivity first -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.EliteRentals.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".LoginActivity" />
+
+        <activity
+            android:name=".ChatbotTenantActivity"
+            android:exported="false"
+            android:label="Assistant"
+            android:parentActivityName=".MessagesActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MessagesActivity"/>
+        </activity>
+
+        <activity android:name=".PmPaymentsActivity" />
+
+        <activity android:name=".PmPaymentDetailActivity"
+            android:parentActivityName=".PmPaymentsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PmPaymentsActivity" />
+        </activity>
+
+
+        <!-- Tenant dashboard -->
+        <activity android:name=".TenantDashboardActivity" />
+
+        <!-- Caretaker maintenance tracking -->
+        <activity android:name=".CaretakerTrackMaintenanceActivity" />
+
+        <activity android:name=".ReportMaintenanceActivity" />
+        <activity android:name=".MainPmActivity" />
+        <activity android:name=".AddEditPropertyActivity" />
+        <activity android:name=".AssignLeaseActivity" />
+        <activity android:name=".RegisterTenantActivity" />
+        <activity android:name=".UploadProofActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".TrackMaintenanceActivity" />
+        <activity android:name=".MessagesActivity" />
+        <activity android:name=".ReplyActivity" />
+        <activity android:name=".AnnouncementsActivity" />
+        <activity android:name=".AdminDashboardActivity" />
+        <activity android:name=".PropertyManagerMaintenanceActivity" />
+
+        <activity android:name=".ViewPhotoActivity"
+            android:screenOrientation="sensorPortrait"
+            android:exported="true" />
+
+        <activity
+            android:name=".SystemUsersActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".RegisterUserActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+
+
+
+
+
+        <!-- Optional: MainActivity if needed elsewhere -->
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

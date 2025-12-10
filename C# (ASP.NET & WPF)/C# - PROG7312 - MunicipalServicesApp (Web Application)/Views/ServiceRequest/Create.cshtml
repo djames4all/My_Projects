@@ -1,0 +1,90 @@
+﻿@model MunicipalServicesApp.Models.ServiceRequest
+@{
+    ViewData["Title"] = "Report Service Request";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow-sm border-success">
+            <div class="card-body">
+                <h4 class="card-title text-success">Submit Service Request</h4>
+
+                @if (ViewBag.SuccessMessage != null)
+                {
+                    <div class="alert alert-success">@ViewBag.SuccessMessage</div>
+                }
+
+                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-success">Title</label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-success">Location</label>
+                        <input asp-for="Location" class="form-control" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-success">Description</label>
+                        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-success">Priority (1 = High)</label>
+                        <input asp-for="Priority" class="form-control" type="number" min="1" max="10" />
+                        <span asp-validation-for="Priority" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-success">Related Tracking IDs (comma separated)</label>
+                        <input asp-for="RelatedTrackingIds" class="form-control" />
+                        <small class="form-text text-muted">Optional: link related requests so they appear connected in graphs.</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-success">Media (optional)</label>
+                        <input asp-for="MediaFile" class="form-control" type="file" />
+                        <span asp-validation-for="MediaFile" class="text-danger"></span>
+                    </div>
+
+                    <button class="btn btn-success" type="submit">Submit Request</button>
+                    <a asp-action="Index" class="btn btn-outline-success ms-2">View Requests</a>
+                            <a asp-action="Index" class="btn btn-outline-success ms-2">Back to List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-success">
+            <div class="card-header bg-success text-white">Recent Requests</div>
+            <div class="card-body" style="max-height:650px; overflow:auto;">
+                @if (ViewBag.Requests != null)
+                {
+                    foreach (var r in (List<MunicipalServicesApp.Models.ServiceRequest>)ViewBag.Requests)
+                    {
+                        <div class="mb-2">
+                            <strong class="text-success">@r.Title</strong><br />
+                            <small class="text-muted">@r.Location — @r.SubmittedAt.ToString("g")</small>
+                            <div>Status: <span class="badge bg-success">@r.Status</span></div>
+                            <div>Track: <small class="text-break">@r.TrackingId</small></div>
+                            <hr />
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div>No requests yet.</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

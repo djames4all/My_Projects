@@ -1,0 +1,181 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@RenderSection("Styles", required: false)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Elite Rentals</title>
+
+    <link rel="icon" type="image/x-icon" href="~/favicon01.ico" />
+    <link rel="shortcut icon" href="~/favicon01.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/EliteRentals.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <input type="hidden" id="currentUserId" value="@HttpContextAccessor.HttpContext?.Session.GetString("UserId")" />
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-0">
+            <div class="container-fluid">
+
+                <a class="navbar-brand d-flex align-items-center gap-2" asp-controller="Home" asp-action="Index">
+                    <img src="~/favicon01.ico" alt="Elite Rentals Logo" width="28" height="28" class="rounded-circle shadow-sm">
+                    <span class="navbar-brand">EliteRentals</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="OurServices">Our Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="ProspectiveTenant" asp-action="TenantPropertyListings">Property Listings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                        </li>
+                    </ul>
+
+                    @{
+                        var isLoggedIn = HttpContextAccessor.HttpContext?.Session.GetString("JWT") != null;
+                        var userName = HttpContextAccessor.HttpContext?.Session.GetString("UserName") ?? "";
+                        var userRole = HttpContextAccessor.HttpContext?.Session.GetString("UserRole") ?? "";
+                    }
+
+                    <ul class="navbar-nav">
+                        @if (isLoggedIn)
+                        {
+                            <li class="nav-item">
+                                <span class="nav-link text-dark">Hello @userName!</span>
+                            </li>
+
+                            @if (userRole == "Tenant")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">My Dashboard</a>
+                                </li>
+                            }
+                            else if (userRole == "Caretaker")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Maintenance" asp-action="Track">Track Requests</a>
+                                </li>
+                            }
+                            else if (userRole == "PropertyManager")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="PropertyManager" asp-action="ManagerDashboard">Manager Dashboard</a>
+                                </li>
+                            }
+                            else if (userRole == "Admin")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Admin" asp-action="AdminDashboard">Admin Dashboard</a>
+                                </li>
+                            }
+
+                            <li class="nav-item">
+                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Register</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Formatting-only: use fluid container for better width; nav untouched -->
+    <div class="container-fluid px-3 px-lg-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            &copy; 2025 <strong>Elite Rentals</strong>. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/firebase-messaging-sw.js")
+                .then(reg => console.log("✅ Service Worker registered:", reg))
+                .catch(err => console.error("❌ Service Worker registration failed:", err));
+        }
+    </script>
+
+    @if (isLoggedIn)
+    {
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-analytics.js";
+            import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-messaging.js";
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyAqBjYCCfBZo-pLFnY6oybdV5ru3ge17IE",
+                authDomain: "elite-rentals-42256.firebaseapp.com",
+                projectId: "elite-rentals-42256",
+                storageBucket: "elite-rentals-42256.firebasestorage.app",
+                messagingSenderId: "719647668815",
+                appId: "1:719647668815:web:4d5a410415c8df2198483a",
+                measurementId: "G-7XG2PLJLL1"
+            };
+
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+            const messaging = getMessaging(app);
+            const vapidKey = "BKpvPVmOcI28BWF5LGv88S0AlffPr3AsCpdudSgaoK_Q_9Vupag1q1W2Ap6Ns6UetoU1OKyUXtU3bHjBBQ8Zs1Q";
+
+            getToken(messaging, { vapidKey }).then(token => {
+                if (token) {
+                    console.log("📲 FCM Token:", token);
+                    fetch("/Account/UpdateFcmToken", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ token })
+                    });
+                } else {
+                    console.warn("⚠️ No registration token available.");
+                }
+            }).catch(err => console.error("❌ Error retrieving token:", err));
+
+            onMessage(messaging, payload => {
+                console.log("🔔 Foreground message:", payload);
+                alert(`${payload.notification?.title}: ${payload.notification?.body}`);
+            });
+        </script>
+    }
+</body>
+</html>
