@@ -155,5 +155,4 @@ OR:
 
 **Daniel Luke James**\
 Email: danjames4all@gmail.com\
-GitHub: https://github.com/djames4all\
 LinkedIn: djames4all
