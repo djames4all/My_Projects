@@ -6,12 +6,12 @@ systems, DevOps pipelines, and database solutions.
 
 ## 📚 Table of Contents
 
--   [About This Repository](#about-this-repository)
--   [Project Index](#project-index)
--   [Technologies & Tools](#technologies--tools)
--   [Getting Started](#getting-started)
--   [Repository Structure](#repository-structure)
--   [Contact](#contact)
+-   [About This Repository]
+-   [Project Index]
+-   [Technologies & Tools]
+-   [Getting Started]
+-   [Repository Structure]
+-   [Contact]
 
 ## 📄 About This Repository
 
